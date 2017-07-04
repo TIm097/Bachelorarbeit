@@ -11,6 +11,8 @@ for i=0:5;
     Z(1:4,i*6+j) = [SYS(1:2,i+1); SYS(1:2,j)];
   end;
 end;
-Z
+z = linspace(1,36,36);
+[z;Z]
+
 
 save('Hubb_Zust.txt', 'Z');
