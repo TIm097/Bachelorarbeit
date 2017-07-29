@@ -1,0 +1,107 @@
+\chapter{Festkörper-Modelle}
+
+evtl kurz Bändermodell
+
+\section{Das Tight-binding-Modell und der Stromoperator}
+
+Das allgemeine Bändermodell beruht auf der Annahme, dass sich die Elektronen in einem Festkörper unter dem Einfluss eines periodischen Gitterpotentials quasifrei bewegen.
+Durch das Tight-Binding-Modell wird ein Festkörpersystem beschrieben, in welchem die Elektronen stark gebunden und lokalisiert sind und abgesehen von der Pauliabstoßung nicht miteinander in Wechselwirkung treten.
+Für die Elektronen sind dann nur noch diskrete Sprünge zwischen den Gitterplätzen des Festkörpers möglich. Der Hamiltonoperator des Tight-Binding-Modells in zweiter Quantisierung lautet
+\begin{align}
+  H_\text{tb} = -J \sum_{i,\sigma} (c_{i+1,\sigma}^{\dag}c_{i,\sigma}^{\phantom{\dag}} + c_{i,\sigma}^{\dag}c_{i+1,\sigma}^{\phantom{\dag}})
+  \label{eqn:hamiltontb}
+\end{align}
+für ein Festkörpersystem mit einem Elektronenband. Summiert wird dabei über alle Gitterpätze $i$ und Spinausrichtungen $\sigma$.
+Der Term $c_{i+1,\sigma}^{\dag}c_{i,\sigma}^{\phantom{\dag}}$ lässt ein Elektron vom Gitterplatz $i$ zu $i+1$ springen und der Term $c_{i,\sigma}^{\dag}c_{i+1,\sigma}^{\phantom{\dag}}$ umgekehrt.
+Der Vorfaktor $J$ ist eine energetische Konstante, welche die Stärke der Tight-Binding-Wechselwirkung im Hamiltonian beschreibt.
+Stromoperator!!!!!!!!!!!!
+
+\section{Das Hubbard-Modell}
+
+Die bisher erwähnten Modelle vernachlässigen die Coulomb-Wechselwirkung der Elektronen untereinander.
+Das Hubbard-Modell ist eine spezielle Erweiterung des Tight-Binding-modells, welche diese Wechselwirkung berücksichtigt.
+Dies ist im Hamiltonoperator durch einen zusätzlichen Term, der eine starke Coulombabstoßung zwischen den Elektronen beschreibt, realisiert.
+Im Folgenden wird die Abstoßung in erster Ordnung, also für Elektronen, die sich auf demselben Gitterpatz befinden, betrachtet.
+Diese Näherung lässt sich dadurch begründen, dass das Coulombpotential mit $\frac1{r}$ abfällt. Der Hamiltonoperator des Hubbardmodells ist dann in zweiter Quantisierung durch
+\begin{align}
+  H_\text{hubb} = H_\text{tb} + U\sum_{i} \prod_{\sigma} n_{i,\sigma}.
+  \label{eqn:hamiltonhubb}
+\end{align}
+gegeben, wobei erneut über die Gitterplätze $i$ und die Spinausrichtungen $\sigma$ summiert wird.
+
+\section{Der Übergang zum Heisenberg-Austausch-Modell im Grenzfall des halbgefüllten Hubbard-Modells}
+
+Die Besetzungswahrscheinlichkeit der Zustände im halbgefüllten Hubbardmodell, in denen sich jeweils ein Elektron auf jedem Gitterplatz befindet, steigt mit dem Wechselwirkungs-Potential $U$ an, da
+die Doppelbesetzung eines Atoms mit dem Ansteigen des Potentials $U$ energetisch ungünstiger wird. Im Grenzfall $U \to \infty$ besteht der Hilbertraum des Festkörpersystems nur noch aus diesen Zuständen
+und die Elektronen können sich nicht mehr zwischen den Gitterplätzen bewegen. Die Dynamik des Systems ist dann nur noch durch virtuelle Prozesse gegeben, in welchen die Spinausrichtung der Elektronen
+benachbarter Gitterplätze getauscht oder beibehalten wird. Für einen virtuellen Prozesse zwischen zwei benachbarten Elektronen mit antiparalleler Spinausrichtung, z.B.
+\begin{align}
+  (\uparrow; \downarrow) &\to (\uparrow \downarrow ; 0) \to (\uparrow; \downarrow),
+\end{align}
+ergibt sich in zweiter Ordnung Störungstheorie die Energiedifferenz
+\begin{align}
+  \Delta E_{\uparrow \downarrow} = - \frac{2J^2}{U}.
+  \label{eqn:Ediffantipar}
+\end{align}
+Ein Sprung zwischen zwei benachbarten Elektronen mit paralleler Spinausrichtung ist wegen des Pauliprinzips nicht möglich.
+Der Energieunterschied beträgt daher
+\begin{align}
+  \Delta E_{\uparrow \uparrow} = 0.
+  \label{eqn:Ediffpar}
+\end{align}
+Da die virtuellen Prozesse nur noch von der Spinausrichtung abhängen, wird das System mit dem Heisenberg-Austausch-Modell verglichen.
+Der Hamiltonoperator dieses Modells ist durch
+\begin{align}
+  H_\text{spin} = t \sum_{i,j} (S_i S_j + C)
+  \label{eqn:hamiltonspincj}
+\end{align}
+gegeben, wobei in beiden Summen über alle Gitterplätze $i$ und $j$ summiert wird. Durch das Vergleichen der Energiedifferenzen der unterschiedlichen Spinkonfigurationen in diesem Modell
+\begin{align}
+  \Delta E_{\uparrow \downarrow} = \bra{\uparrow \downarrow} H_\text{spin} \ket{\uparrow \downarrow} = t\left(C - \frac14\right) \\
+  \Delta E_{\uparrow \uparrow} = \bra{\uparrow \uparrow} H_\text{spin} \ket{\uparrow \uparrow} = t\left(C + \frac14\right)
+\end{align}
+mit den Energiedifferenzen \eqref{eqn:Ediffantipar} und \eqref{eqn:Ediffpar} ergeben sich die Konstanten
+\begin{align}
+  t = \frac{4 J^2}{U}
+\end{align}
+und
+\begin{align}
+  C = -\frac14
+\end{align}
+für den Hamiltonian \eqref{eqn:hamiltonspincj}.
+Im Grenzfall $U \to \infty$ geht der Hamilton-Operator des halbgefüllten Hubbard-Modells \eqref{eqn:hamiltonhubb} also in den Hamilton-Operator des Heisenberg-Austausch-Modells
+\begin{align}
+  H_\text{spin} = \frac{4 J^2}{U} \sum_{i,j} (S_i S_j - \frac14)
+  \label{eqn:hamiltonspin}
+\end{align}
+über.
+
+Eine mögliche Struktur der Arbeit sieht wie folgt aus:
+
+\begin{enumerate}
+    \item \textbf{Einleitung}\\
+        In der \emph{kurzen} Einleitung wird die Motivation für die Arbeit
+        dargestellt und ein Einblick in die kommenden Kapitel gegeben.
+    \item \textbf{Theoretische Grundlagen}\\
+        Alles was an theoretischen Grundlagen benötigt wird, sollte auch eher kurz gehalten werden.
+        Statt Grundlagenwissen zu präsentieren, eher auf die entsprechenden Lehrbücher verweisen.
+        Etwa: Tiefer gehende Informationen zur klassischen Mechanik entnehmen Sie bitte \cite{kuypers}.
+    \item \textbf{Ergebnisse} \\
+        Der eigentliche Teil der Arbeit, das was getan wurde.
+    \item \textbf{Zusammenfassung und Ausblick} \\
+        Zusammenfassung der Ergebnisse, Optimierungsmöglichkeiten, mögliche weitergehende Untersuchungen.
+\end{enumerate}
+
+Die Gliederung sollte auf der einen Seite nicht zu fein sein, auf der anderen Seite
+sollten sich klar unterscheidende Abschnitte auch kenntlich gemacht werden.
+
+In der hier verwendeten \KOMAScript-Klasse \texttt{scrbook} ist die oberste Gliederungsebene,
+die in der Bachelorarbeit verwendet werden sollte, das \texttt{\textbackslash chapter}.
+
+Ein Kapitel sollte erst dann in tiefere Gliederungsebenen unterteilt werden, wenn es auch wirklich etwas zu unterteilen gibt. Es sollte keine Kapitel mit nur einem Unterkapitel (\texttt{\textbackslash section}) geben.
+
+In dieser Vorlage ist die Tiefe des Inhaltsverzeichnisses auf \texttt{chapter} und \texttt{section} beschränkt. Möchten Sie diese Beschränkung aufheben, entfernen Sie den Befehl
+\begin{verbatim}
+            \setcounter{tocdepth}{1}
+\end{verbatim}
+aus der Präambel oder ändern Sie den Zahlenwert entsprechend. Das Inhaltsverzeichnis sollte für eine Bachelorarbeit auf eine Seite passen.

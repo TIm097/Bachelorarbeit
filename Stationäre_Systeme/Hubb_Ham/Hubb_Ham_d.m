@@ -1,8 +1,10 @@
 # Hubbard-4-Elektronen-System: Diagonelelemente des Hamiltonian
 
 # Zustandsvektoren:
-Z_a = load('Hubb_Zust.txt');
-Z = cell2mat(struct2cell(Z_a));
+Z = cell2mat(struct2cell(load('Hubb_Zust.txt')));
+z = linspace(1,36,36);
+
+[z;Z]
 
 # Hamiltonian (Elemente der lokalen WW):
 H_d = zeros(36,36);

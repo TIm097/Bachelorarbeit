@@ -10,7 +10,7 @@ H_d = np.genfromtxt('Stationäre_Systeme/Hubb_Ham/Hubb_Ham_d.txt', unpack = 'Tru
 
 J = 0.3 # in eV
 U = 3 # in eV
-H_0 = J* H_j + U* H_d # Hubbard-Hamiltonian ohne zeitabhängiges Potential
+H_0 = -J* H_j + U* H_d # Hubbard-Hamiltonian ohne zeitabhängiges Potential
 
 E,v = np.linalg.eig(H_0) # Eigs
 

@@ -35,7 +35,7 @@ function f = J(Z,k,r);
 end;
 
 # Hamiltonian:
-H = zeros(6,6);
+H_J = zeros(6,6);
 
 for i=2:6;
   for j=1:(i-1);
@@ -43,9 +43,9 @@ for i=2:6;
       for r=1:2; # Hüpfrichtung r
         M = J(Z(:,i),k,r);
         if M == Z(:,j);
-          H(i,j) += 1;
+          H_J(i,j) += 1;
         elseif flip(M) == Z(:,j);
-          H(i,j) -= 1; # Vertauschung zweier Fermionen
+          H_J(i,j) -= 1; # Vertauschung zweier Fermionen
         end;
       end;
     end;
@@ -55,9 +55,28 @@ end;
 # H ist symmetrisch:
 for j = 2:6;
   for i = 1:(j-1);
-    H(i,j) = H(j,i);
+    H_J(i,j) = H_J(j,i);
   end;
 end;
-H
+# Vorfaktor J ist negativ
+
+# Diagonalelemente:
+a = 1*10^(-15)
+H_a = zeros(6,6);
+for i = 1:6;
+  if Z(1,i) == 1 || Z(1,i) == 3;
+      H_a(i,i) += a;
+  else;
+      H_a(i,i) -=a;
+  end;
+  if Z(2,i) == 1 || Z(2,i) == 3;
+      H_a(i,i) += a;
+  else;
+      H_a(i,i) -=a;
+  end;
+end;
+
+H = -H_J + H_a
+
 # Eig:
 [v, lambda]=eig(H)

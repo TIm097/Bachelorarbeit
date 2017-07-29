@@ -9,7 +9,7 @@ EW = zeros(a,2);
 EW(:,1) = linspace(1,a,a);
 
 for o = 1:a;
-  H = H_j + EW(o,1)*H_d;
+  H = -H_j + EW(o,1)*H_d;
   [v, lambda] = eig(H);
   EW(o,2) = lambda(1,1);
 end;

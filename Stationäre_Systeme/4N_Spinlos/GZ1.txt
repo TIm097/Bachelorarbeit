@@ -1,0 +1,11 @@
+# Created by Octave 4.0.3, Fri Jul 21 14:29:55 2017 CEST <timo@timo-Lenovo-ideapad-100-14IBY>
+# name: u
+# type: matrix
+# rows: 4
+# columns: 1
+ -0.4999999999999999
+ -0.5
+ -0.4999999999999998
+ -0.4999999999999999
+
+

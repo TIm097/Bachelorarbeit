@@ -1,0 +1,262 @@
+\chapter{Ergebnisse}
+
+\section{Untersuchung eines Festkörpersystems im Tight-Binding-Modell}
+
+Im Folgenden wird die Dynamik eines mikroskopischen Festkörpersystems, bestehend aus vier Gitterplätzen bzw. Niveaus und einem Elektron, im Tight-Binding-Modell analysiert.
+Das System ist in Abbildung \ref{fig:system} mit beispielhafter Elektronenbesetzung skizziert. Das Elektron kann waagerecht oder senkrecht zwischen den Gitterplätzen springen.
+Der Hilbertraum des Systems setzt sich aus vier Zuständen, bei denen sich das Elektron jeweils auf einem der vier Gitterplätze befindet, zusammen und ist daher vierdimensional.
+Um die Dynamik des Systems zu analysieren werden die Zustände aufgestellt, daraus die vierdimensionale Hamilton-Matrix bestimmt und mit Hilfe dieser die Schrödingergleichung \ref{eqn:schroedinger} gelöst.
+
+Die Zustände werden in der Konvention
+\begin{align}
+  \ket{i} = \ket{f_i(x)}
+  \label{eqn:tbzustandsvorschrift1e}
+\end{align}
+dargestellt. Dabei gibt die Funktion $f_i(x)$ die Nummer des Gitterplatzes an, auf dem sich das Elektron $x$ befindet. Aus der Gleichung \eqref{eqn:hamiltontb} folgt der Hamiltonian des Systems
+\begin{align}
+  H_\text{tb,sys} = -J \sum_{i=1}^{4} (c_{i+1}^{\dag}c_{i} + c_{i}^{\dag}c_{i+1}).
+\end{align}
+Da das Elektron auch zwischen den Gitterplätzen $1$ und $4$ springen kann, sind die Randbedingungen periodisch, sodass die Indizes $i+1$ für $i=4$ den Wert $1$ annehmen.
+In den folgenden Rechnungen wird der Vorfaktor $J$ auf $1$ gesetzt. Der Hamiltonian wird mit der Formel
+\begin{align}
+  H_{mn} = \bra{m} H \ket{n}
+  \label{eqn:matrixdarstellung}
+\end{align}
+als $4 \times 4$ -Matrix dargestellt. Die berechnete Matrix ist in Tabelle \ref{tab:tbhamiltonmatrixe1} zu sehen.
+Als nächstes wird die Schrödingergleichung \eqref{eqn:schroedinger}, die durch den Hamilton-Operator $H$ festgelegt ist, gelöst.
+Da dieser zeitunabhängig ist, wird die stationäre Schrödingergleichung \eqref{eqn:statschroedinger} aufgestellt und durch Diagonalisieren des Hamilton-Operators $H$ mit Papier und Bleistift gelöst. (analytisch)
+Die berechneten Energie-Eigenwerte $E_k/J$ und die Koeffizienten $\alpha_{i,k}$ der generierten Eigenzustände $v_k$ sind in Tabelle \ref{tab:tbeigene1} aufgelistet.
+Die Eigenzustände ergeben sich aus der Linearkombination
+\begin{align}
+  v_k = \sum_i \alpha_{i,k} \ket{i}.
+  \label{eqn:linkomb}
+\end{align}
+Da das Betragsquadrat des Koeffizienten $\alpha_{i,k}$ der Besetzungswahrscheinlichkeit $P_i$ für den i-ten Zustand im Eigenzustand $v_k$ entspricht,
+ist an die Linearkombination \eqref{eqn:linkomb} die Normierungsbedingung
+\begin{align}
+  \sum_i \lvert \alpha_{i,k} \rvert^2 = 1.
+  \label{eqn:tbnb}
+\end{align}
+geknüpft.
+
+\begin{table}[h]
+  \centering
+  \caption{Analytisch berechnete Eigenwerte $E_k/J$ und zugehörige Koeffizienten $\alpha_{i,k}/0.5$ der Eigenzustände.}
+  \begin{tabular}{S[table-format=1.0] S[table-format=2.0] S[table-format=1.0] S[table-format=1.0] S[table-format=1.0] S[table-format=2.0]}
+    \toprule
+    {$k$} & {$E_k/J$} & {$\alpha_{1,k}/0.5$} & {$\alpha_{2,k}/0.5$} & {$\alpha_{3,k}/0.5$} & {$\alpha_{4,k}/0.5$}\\
+    \midrule
+    0 & -2 & 1 & $\sqrt{2}$         & 0           & 1  \\
+    1 & 0  & 1 & 0                  & $\sqrt{2}$  & -1 \\
+    2 & 0  & 1 & \text{$-\sqrt{2}$} & 0           & 1  \\
+    3 & 2  & 1 & 0                  & \text{$-\sqrt{2}$} & -1 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:tbeigene1}
+\end{table}
+
+Das System ist invariant unter einer Transformation, die das Gitter um $\SI{90}{\degree}$ dreht und die Gitterplätze in derselben Konvention wie im unrotierten System neu durchnummeriert.
+Da eine Rotation die Dynamik des Systems nicht ändert, kann folglich die Konvention der Durchnummerierung die Dynamik ebenfalls nicht ändern.
+Die Zustände $\ket{i}$ unterscheiden sich neben der Nummer $i$ um keine weitere Quantenzahl. Daraus folgt, dass die Besetzungswahrscheinlichkeiten in den
+Eigenzuständen, die sich aus nicht-entarteten Energie-Eigenwerten ergeben, für alle Zustände $\ket{i}$ gleich sind.
+Aus der Normierungsbedingung \eqref{eqn:tbnb} folgt daher für diese Eigenzustände
+\begin{align}
+  P_{i,k} = \lvert \alpha_{i,k} \rvert^2 = 0.25.
+  \label{eqn:BesetzungRot}
+\end{align}
+Das ist für die berechneten Eigenzustände $v_0$ und $v_3$ der Fall. Für die Eigenzustände zu entarteten Energie-Eigenwerten, hier $v_1$ und $v_2$ zur Energie $E_1 = E_2 = 0$, können mehrere verschiedene Basen
+gewählt werden, sodass Gleichung \eqref{eqn:BesetzungRot} nicht zwangsläufig gilt. Der physikalische Grund dafür ist, dass das Elektron bei hinreichender Energie einen Zustand,
+der sich aus einer Linearkombination der beiden Eigenzustände $v_1$ und $v_2$ ergibt, besetzt.
+
+In dem bisher betrachteten System kann unter Beachtung des Pauliprinzips ein weiteres Elektron ergänzt werden.
+Die waagerechten oder senkrechten Sprünge der Elektronen sind  zwichen den Gitterplätzen springen,
+
+
+
+
+\begin{table}[h]
+  \centering
+  \caption{Datenpunkte der drei niedrigsten Eigenenergien des Festkörpersystems in Abhängigkeit vom Potential und in Einheiten von $J$.}
+  \begin{tabular}{S[table-format=1.0] S[table-format=2.0]}
+    \toprule
+    {$k$} & {$E/J$}\\
+    \midrule
+    0  & -2 \\
+    1  & -2 \\
+    2  & 0  \\
+    3  & 0  \\
+    4  & 2  \\
+    5  & 2  \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:tbeigenwertee1}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Datenpunkte der drei niedrigsten Eigenenergien des Festkörpersystems in Abhängigkeit vom Potential und in Einheiten von $J$.}
+  \begin{tabular}{S[table-format=1.0] S[table-format=2.0]}
+    \toprule
+    {$k$} & {$E/J$}\\
+    \midrule
+    1  & -2 \\
+    2  & -2 \\
+    3  & 0  \\
+    4  & 0  \\
+    5  & 2  \\
+    6  & 2  \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:tbeigenwerte}
+\end{table}
+
+
+
+
+In Tabelle \ref{tab:tbzustandsvorschrift} sind die Darstellungen \eqref{eqn:tbzustandsvorschrift} der vier Zustände aufgelistet.
+
+\begin{table}
+  \centering
+  \caption{.}
+  \begin{tabular}{S[table-format=1.0] S}
+    \toprule
+    {$i$} & {$\ket{i}$} \\
+    \midrule
+    1 & $\ket{1,2}$ \\
+    2 & $\ket{1,3}$ \\
+    3 & $\ket{1,4}$ \\
+    4 & $\ket{2,3}$ \\
+    5 & $\ket{2,4}$ \\
+    6 & $\ket{3,4}$ \\
+    \midrule
+  \end{tabular}
+  \label{tab:hubbzustandsvorschrift}
+\end{table}
+
+
+\section{Untersuchung eines Festkörpersystems im Hubbard-Modell}
+
+Diese Konvention führt automatisch dazu, dass der zweite Eintrag in der Darstellung der Zustände \eqref{eqn:tbzustandsvorschrift} größer als der erste ist.
+Falls der zweite Eintrag eines Zustands kleiner als der erste ist, was z.B. bei Anwenden eines Operators geschehen kann, werden die Einträge getauscht und der Zustand erhält zusätzlich aufgrund der Antisymmetrie der fermionischen Wellenfunktion ein Vorzeichen.
+
+In diesem Kapitel wird die Dynamik eines mikroskopischen Festkörpersystems, bestehend aus vier Gitterplätzen, im Hubbard-Modell untersucht.
+Jeder Gitterplatz besitzt zwei Niveaus, die sich jeweils in der Spinmagnetquantenzahl $\sigma$ unterscheiden.
+Auf jeweils vier Niveaus mit äquvalenter Spinausrichtung sind zwei Elektronen verteilt, sodass das System insgesamt halbgefüllt ist.
+In Abbildung \ref{fig:system} ist eine Skizze des Systems mit beispielhafter Elektronenbesetzung abgebildet.
+
+Die Elektronen können unter Beachtung des Pauliprinzips waagerecht oder senkrecht zwischen den Gitterplätzen unter Beibehaltung der Spinausrichtung springen.
+Das System besteht daher effektiv aus zwei gekoppelten, spinlosen, halbgefüllten Festkörpersystemen mit jeweils vier Gitterplätzen, vier Niveaus.
+In Kapitel \ref{sec:tbuntersuchung} wurde bereits herausgefunden, dass ein solches System sechs Zustände beinhaltet bzw. einen 6D-Hilbertraum umfasst.
+Das gekoppelte System beinhaltet daher $6 \cdot 6=36$ Zustände bzw. umfasst einen 36D-Hilbertraum. Die Zustände des Gesamtsystems werden mit der Vorschrift
+\begin{align}
+  \ket{i} = \ket{f_i(\uparrow_1),f_i(\uparrow_2); f_i(\downarrow_1),f_i(\downarrow_2)}
+  \label{eqn:hubbzustandsvorschrift}
+\end{align}
+dargestellt. Dabei ist $f_i(x_\alpha)$ eine Funktion, welche den Ort des Elektrons $x_\alpha$ im i-ten Zustand des Systems angibt.
+In der Bezeichnung des Elektrons $x_\alpha$ stellt $x$ die Spinausrichtung und der Index $\alpha$ die Nummer des Elektrons dar, wobei die Elektronen eines Spinniveaus gegen den Uhrzeigersinn und beginnend beim Gitterplatz $1$ durchnummeriert werden.
+Werden zwei Einträge einer Spinausrichtung in den Zuständen \eqref{eqn:hubbzustandsvorschrift} getauscht, so erhält der Zustand aufgrund der Antisymmetrie der fermionischen Wellenfunktion ein negatives Vorzeichen.
+Die Einträge der $36$ Zustände aus Gleichung \eqref{eqn:hubbzustandsvorschrift} sind in Tabelle \ref{tab:hubbzustandsvorschrift} aufgelistet.
+
+\begin{table}
+  \centering
+  \caption{.}
+  \begin{minipage}[t]{0.35\linewidth}
+    \begin{tabular}{S[table-format=2.0] S}
+      \toprule
+      {$i$} & {$\ket{i}$} \\
+      \midrule
+      1  & $\ket{1,2;1,2}$ \\
+      2  & $\ket{1,2;1,3}$ \\
+      3  & $\ket{1,2;1,4}$ \\
+      4  & $\ket{1,2;2,3}$ \\
+      5  & $\ket{1,2;2,4}$ \\
+      6  & $\ket{1,2;3,4}$ \\
+      7  & $\ket{1,3;1,2}$ \\
+      8  & $\ket{1,3;1,3}$ \\
+      9  & $\ket{1,3;1,4}$ \\
+      10 & $\ket{1,3;2,3}$ \\
+      11 & $\ket{1,3;2,4}$ \\
+      12 & $\ket{1,3;3,4}$ \\
+      13 & $\ket{1,4;1,2}$ \\
+      14 & $\ket{1,4;1,3}$ \\
+      15 & $\ket{1,4;1,4}$ \\
+      16 & $\ket{1,4;2,3}$ \\
+      17 & $\ket{1,4;2,4}$ \\
+      18 & $\ket{1,4;3,4}$ \\
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}[t]{0.35\linewidth}
+    \begin{tabular}{S[table-format=2.0] S}
+      \toprule
+      {$i$} & {$\ket{i}$} \\
+      \midrule
+      19 & $\ket{2,3;1,2}$ \\
+      20 & $\ket{2,3;1,3}$ \\
+      21 & $\ket{2,3;1,4}$ \\
+      22 & $\ket{2,3;2,3}$ \\
+      23 & $\ket{2,3;2,4}$ \\
+      24 & $\ket{2,3;3,4}$ \\
+      25 & $\ket{2,4;1,2}$ \\
+      26 & $\ket{2,4;1,3}$ \\
+      27 & $\ket{2,4;1,4}$ \\
+      28 & $\ket{2,4;2,3}$ \\
+      29 & $\ket{2,4;2,4}$ \\
+      30 & $\ket{2,4;3,4}$ \\
+      31 & $\ket{3,4;1,2}$ \\
+      32 & $\ket{3,4;1,3}$ \\
+      33 & $\ket{3,4;1,4}$ \\
+      34 & $\ket{3,4;2,3}$ \\
+      35 & $\ket{3,4;2,4}$ \\
+      36 & $\ket{3,4;3,4}$ \\
+    \end{tabular}
+  \end{minipage}
+  \label{tab:hubbzustandsvorschrift}
+\end{table}
+
+Aus den Gleichungen \eqref{eqn:hamiltontb} und \eqref{eqn:hamiltonhubb} folgt der Hamiltonoperator für das Gesamtsystem
+\begin{align}
+  H_\text{hubb,sys} = -J \sum_{i=1}^4 \sum_{\sigma = \{ \downarrow,\uparrow \}} (c_{i+1,\sigma}^{\dag}c_{i,\sigma} + c_{i,\sigma}^{\dag}c_{i+1,\sigma}) + U\sum_{i=1}^4 \prod_{\sigma = \{ \downarrow,\uparrow \}} n_{i,\sigma},
+  \label{eqn:hubbsys}
+\end{align}
+wobei die zusätzliche Bedingung periodischer Randbedingungen in den Summen über die Gitterplätze $i$ beachtet werden muss.
+Der Hamilton-Operator wird durch die Vorschrift \eqref{eqn:matrixdarstellung} als $36 \times 36$ -Matrix dargestellt.
+Dabei bestimmt der Vorfaktor $J$ des Tight-Binding-Terms \eqref{eqn:hubbsys} die Nichtdiagonalelemente und der
+Vorfaktor $U$ des Elektronen-Potentialterms die Diagonalelemente der Hamilton-Matrix. Der Parameter $J$ wird im Folgenden auf $1$ gesetzt, sodass die Lösungen der Schrödingergleichung nur abhängig von $\frac{U}{J} = U$ sind.
+Die berechnete Hamilton-Matrix ist in Tabelle \ref{tab:hubbhammatrix} abgebildet. Da der Hamiltonoperator $H$ nicht zeitabhängig ist, wird erneut die stationäre Schrödingergleichung \eqref{eqn:statschroedinger}
+für das gegebene System aufgestellt und gelöst.
+Zur Bestimmung der Eigenenergien und Eigenfunktionen von $H$ wird die Hamiltonmatrix für verschiedene $U/J$ mit Hilfe der Funktion // eig von octave // diagonalisiert. Die drei kleinsten Eigenwerte $\frac{E}{J}$ sind
+in Tabelle \ref{tab:eigenwerte} für diverse $U/J$ aufsteigend aufgelistet und in Abbildung \ref{fig:eplot} gegen $U/J$ graphisch aufgetragen.
+
+\begin{table}[h]
+  \centering
+  \caption{Datenpunkte der drei niedrigsten Eigenenergien des Festkörpersystems in Abhängigkeit vom Potential und in Einheiten von $J$.}
+  \begin{tabular}{S[table-format=1.0] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2]}
+    \toprule
+    {$U/J$} & {$E_0/J$} & {$E_1/J$} & {$E_2/J$} \\
+    \midrule
+    1  & -3.34 & -3.29 & -2.86 \\
+    2  & -2.83 & -2.69 & -2.00 \\
+    3  & -2.42 & -2.19 & -1.42 \\
+    4  & -2.10 & -1.81 & -1.07 \\
+    5  & -1.84 & -1.51 & -0.84 \\
+    6  & -1.63 & -1.29 & -0.70 \\
+    7  & -1.46 & -1.12 & -0.59 \\
+    8  & -1.32 & -0.99 & -0.51 \\
+    9  & -1.20 & -0.88 & -0.45 \\
+    10 & -1.10 & -0.80 & -0.41 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:eigenwerte}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/Hubb_eplot.pdf}
+  \caption{plot.}
+  \label{fig:eplot}
+\end{figure}
+
+Für ein verschwindendes Potential $U$ nähern sich die drei niedrigsten Eigenenergien dem Wert $E/J = -4$ an.
+Das ist dadurch erklärbar, dass sich das 8-Niveau-Festkörpersystem im Grenzfall $U/J = 0$ wie zwei gekoppelte, nicht miteinander wechselwirkende 4-Niveau-Festkörpersysteme verhält.
+Die niedrigste Eigenenergie $E/J = -2$ des 4-Niveau-Festkörpersystems   ist zweifach entartet.
+Daher gibt es vier Möglichkeiten

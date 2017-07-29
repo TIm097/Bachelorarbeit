@@ -17,14 +17,14 @@ plt.savefig('build/Hubb_gzv_plot.pdf')
 plt.close()
 
 # Eigenwerte-Plot:
-U, Egz = np.genfromtxt('Stationäre_Systeme/Hubb_Eig_Ergebn/Hubb_gze.txt', unpack = 'True')
-plt.plot(U, Egz, 'k-', label = r'$E_{gz}$')
+U, E_0, E_1, E_2, E_3, E_4, E_5, E_6, E_7 = np.genfromtxt('Stationäre_Systeme/Hubb_Eig_Ergebn/Hubb_eplot.txt', unpack = 'True')
+plt.plot(U, E_0, 'k-', label = r'$E_0$')
 x = np.linspace(0.1,25,10000)
 plt.plot(x,-12/x,'r-', label = r'erste Korrektur')
 
 plt.xlabel(r'$U/J$')
 plt.ylabel(r'$E/J$')
-plt.xlim(0.1,25)
+plt.xlim(0.01,20)
 plt.ylim(-8,0)
 plt.legend(loc = 'best')
 plt.savefig('build/Hubb_gze_plot.pdf')

@@ -1,0 +1,120 @@
+\chapter{Theoretische Grundlagen und Konventionen}
+
+Vektoren fett
+Im Folgenden wird in natürlichen Einheiten gerechnet, das heißt unter anderem
+\begin{align}
+  \hbar = 1.
+\end{align}
+ortsraum
+
+\section{Die Schrödingergleichung}
+\label{sec:schroedingergleichung}
+
+Die zeitliche Entwicklung eines quantenmechanischen, nicht-relativistischen Zustandes $\ket{\Psi}$ ist durch die Schrödingergleichung
+\begin{align}
+  \symup{i} \frac{\partial}{\partial t} \ket{\Psi(\symbf{x},t)} = H(\symbf{x},t) \ket{\Psi(\symbf{x},t)}
+  \label{eqn:schroedingergleichung}
+\end{align}
+gegeben. Dabei ist
+\begin{align}
+  H(\symbf{x},t) = -\frac1{2 m} \symbf{\nabla}^2 + V(\symbf{x},t)
+  \label{eqn:hamiltonian}
+\end{align}
+der Hamiltonoperator mit einem beliebigen Potential $V(\symbf{x},t)$.
+Wenn das Potential $V$ und somit auch der Hamiltonian $H$ zeitunabhängig ist, werden in der Schrödingergleichung \eqref{eqn:schroedingergleichung} Ort $\symbf{x}$ und Zeit $t$ mit dem Ansatz
+\begin{align}
+  \Psi(\symbf{x},t) = \Phi(\symbf{x})f(t)
+  \label{eqn:separation}
+\end{align}
+separiert. Die daraus resultierende stationäre Schrödingergleichung
+\begin{align}
+  H \ket{\Phi(\symbf{x})} = E \ket{\Phi(\symbf{x})}
+  \label{eqn:statschroedinger}
+\end{align}
+ist nur noch vom Ort $\symbf{x}$ abhängig und die Wellenfunktionen $\Psi(\symbf{x},t)$, die die Schrödingergleichung \eqref{eqn:schroedingergleichung} lösen, sind Eigenzustände des Hamiltonoperators $H$ zu den Eigenwerten $E$.
+Wenn das Potential $V$ und der Hamiltonoperator $H$ zeitabhängig sind, kann die Schrödingergleichung \eqref{eqn:schroedingergleichung} nicht separiert werden, sondern in den meisten Fällen nur numerisch, zum Beispiel durch ein Integrationsverfahren, gelöst werden.
+Nähere Informationen zur Herleitung und zur Lösung der Schrödingergleichung können \cite{schwabl} entnommen werden.
+
+\section{Quantenmechanische Operatoren und die zweite Quantisierung}
+
+In der Quantenmechanik sind den Observablen der klassischen Physik Operatoren zugeordnet.
+Dieses Postulat wird als Korrespondenzprinzip bezeichnet.
+\cite{schwabl}
+
+Die zweite Quantisierung ist eine Darstellung von Operatoren, die sich vor allem für die Betrachtung von fermionischen Vielteilchensystemen eignet.
+Grundlage für diese Darstellung sind die auf dem Fockraum definierten fermionischen Erzeugungs- und Vernichtungsoperatoren $c^\dag$ und $c$.
+Diese ändern die Teilchenzahl eines fermionischen Vielteilchenzustands gemäß
+\begin{align}
+  c_i^{\phantom{\dag}} \ket{N_1, N_2, ..., N_i, ...} & = \pm n_i \ket{N_1, N_2, ..., N_i-1, ...} \label{eqn:vernichter}\\
+  c_i^\dag \ket{N_1, N_2, ..., N_i, ...} & = \pm (1-N_i) \ket{N_1, N_2, ..., N_i+1, ...} \label{eqn:erzeuger}
+\end{align}
+um $1$. Dabei ist $N_i$ die Besetzungszahl des i-ten Zustands, die aufgrund des Pauliprinzips nur die Werte $0$ und $1$ annehmen kann.
+Das Vorzeichen in \eqref{eqn:vernichter} und \eqref{eqn:erzeuger} entsteht durch die Antisymmetrie des Zustands. \cite{cy}
+
+Im Folgenden werden Operatoren und Zustände ausschließlich in Ortsdarstellung angegeben und verwendet.
+
+\section{Der Besetzungszahloperator}
+
+Alle fermionischen Vielteilchenzustände sind Eigenfunktionen der Besetzungszahloperatoren
+\begin{align}
+  n_i = c_i^\dag c_i^{\phantom{\dag}},
+  \label{eqn:besetzer}
+\end{align}
+wobei die zugehörigen Eigenwerte jeweils die Besetzungszahlen $n_i$ der i-ten Zustände sind.
+Der Wertebereich der Eigenwerte ist daher ebenfalls auf $0$ und $1$ beschränkt.
+\cite{cy}
+
+\section{Der Spinoperator}
+
+Die Indizes der Erzeugungs- und Vernichtungsoperatoren werden im Folgenden um einen zusätzlichen Parameter $\sigma$, der die Spinausrichtung eines Elektrons angibt, erweitert.
+Die Ein-Teilchen-Zustände des fermionischen Vielteilchensystems spalten sich dadurch jeweils in zwei im Ort entartete Zustände auf, die sich nur in der Spin-Magnetquantenzahl $\sigma$ unterscheiden.
+Der Parameter $\sigma$ kann die Werte $\sigma = \frac12$, für Spin Up ($\uparrow$), und $\sigma = -\frac12$, für Spin Down ($\downarrow$), annehmen.
+
+Um den Gesamtspin $S$ eines fermionischen Vielteilchensystems zu ermitteln, wird zunächst der vektorartige Spinoperator für das Einteilchensystem
+\begin{align}
+  S & = \begin{pmatrix*}[r]
+    S_x \\
+    S_y \\
+    S_z
+  \end{pmatrix*}
+  \label{eqn:spinoperator}
+\end{align}
+eingeführt. Die Quantisierungsachse wird im Folgenden in z-Richtung gelegt, sodass die Einteilchenzustände Eigenfunktionen des $S_z$-Operators zu den Eigenwerten $\sigma$ sind.
+Der $S_x$- und der $S_y$-Operator werden dann mit
+\begin{align}
+  S_x & = \frac12 \left(S_+ + S_- \right) & S_y &= \frac1{2i} \left(S_+ - S_- \right)
+  \label{eqn:leiteroperatorenausdruck}
+\end{align}
+durch die Spin-Leiteroperatoren $S_+$ und $S_-$ ausgedrückt. Die Wirkung der Spin-Leiteroperatoren auf einen fermionischen Einteilchenzustand mit Spin Up oder Spin Down ist durch
+\begin{align}
+  S_+ \ket{\uparrow} & = 0 & S_+ \ket{\downarrow} & = \ket{\uparrow} \label{eqn:spluswirkung}\\
+  S_- \ket{\uparrow} & = \ket{\downarrow} & S_- \ket{\downarrow} & = 0 \label{eqn:sminuswirkung}
+\end{align}
+gegeben. Das Anwenden des $S_+$-Operators auf einen Einteilchenzustand entspicht dem Vernichten eines Elektrons mit Spin Down gefolgt vom Erzeugen
+eines Elektrons mit Spin Up. Dies gilt auch für den $S_-$-Operator mit vertauschten Spins. Daraus folgt Darstellung der Spin-Leiteroperatoren in zweiter Quantisierung
+\begin{align}
+  S_+ & = c_\uparrow^\dag c_\downarrow^{\phantom{\dag}} & S_- & = c_\downarrow^\dag c_\uparrow^{\phantom{\dag}}. \label{eqn:leitersecondquant}
+\end{align}
+Die Eigenwertgleichungen für den $S_z$-Operator
+\begin{align}
+  S_z \ket{\uparrow} &= \frac12 \ket{\uparrow} & S_z \ket{\downarrow} &= -\frac12 \ket{\downarrow}
+\end{align}
+führen auf die Darstellung des Operators in zweiter Quantisierung
+\begin{align}
+  S_z = \frac12 (n_\uparrow -  n_\downarrow) = \frac12 (c_\uparrow^\dag c_\uparrow^{\phantom{\dag}} - c_\downarrow^\dag c_\downarrow^{\phantom{\dag}}) \label{eqn:szsecondquant}.
+\end{align}
+\cite{schwabl}
+
+Aus den Gleichungen \eqref{eqn:spinoperator} und \eqref{eqn:leiteroperatorenausdruck} folgt der $S^2$-Operator für ein fermionisches Einteilchensystem
+\begin{align}
+  S^2 & = S_z^2 + \frac12 \left( S_+ S_- + S_- S_+ \right)
+  \label{eqn:squadoperatorein}
+\end{align}
+Durch summieren der Einteilchenoperatoren $S_{+,i}$, $S_{-,i}$ und $S_{z,i}$ über alle Zustandsniveaus $i$ folgt aus den Gleichungen \eqref{eqn:squadoperatorein} die Darstellung des $S^2$-Operators in zweiter Quantisierung für ein fermionisches Vielteilchensystem
+\begin{align}
+  S^2 & = \frac14 \left(\sum_{i} n_{\uparrow,i} - n_{\downarrow,i}\right)^2 +
+  \frac12 \left( \sum_{i,j} c_{\uparrow,i}^\dag c_{\downarrow,i}^{\phantom{\dag}} \cdot c_{\downarrow,j}^\dag c_{\uparrow,j}^{\phantom{\dag}} + c_{\downarrow,i}^\dag c_{\uparrow,i}^{\phantom{\dag}} \cdot c_{\uparrow,j}^\dag c_{\downarrow,j}^{\phantom{\dag}} \right).
+  \label{eqn:squadoperatorviel}
+\end{align}
+Die Vielteilchenzustände sind Eigenfunktionen des $S^2$-Operators zu den Eigenwerten $S(S+1)$.
+\cite{???}
