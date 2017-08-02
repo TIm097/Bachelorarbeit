@@ -17,7 +17,7 @@ for i=1:4;
   end;
 end;
 Z
-save('Spinanr_Zust.txt', 'Z');
+save('Spinanr_Zustgroß.txt', 'Z');
 
 
 # Hamiltonian:
@@ -130,10 +130,10 @@ for j = 2:16;
   end;
 end;
 
-H = H_hupf + 10*H_diag;
+H = -H_hupf + 4*H_diag
 [v,lambda] = eig(H);
 gzv = v(:,1);
-save('Spinanr_gzv.txt','gzv'); # Für S^2
+#save('Spinanr_gzv.txt','gzv'); # Für S^2
 
 # Verschiedene WW-Werte:
 a = 1000; # Anzahl Werte  (U/J=a)
@@ -147,4 +147,4 @@ for o=1:a;
   gzeig(o,2) = lambda(1,1);
 end;
 
-save('Spinanr_gze.txt','gzeig')
+#save('Spinanr_gze.txt','gzeig')

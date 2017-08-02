@@ -60,23 +60,7 @@ for j = 2:6;
 end;
 # Vorfaktor J ist negativ
 
-# Diagonalelemente:
-a = 1*10^(-15)
-H_a = zeros(6,6);
-for i = 1:6;
-  if Z(1,i) == 1 || Z(1,i) == 3;
-      H_a(i,i) += a;
-  else;
-      H_a(i,i) -=a;
-  end;
-  if Z(2,i) == 1 || Z(2,i) == 3;
-      H_a(i,i) += a;
-  else;
-      H_a(i,i) -=a;
-  end;
-end;
-
-H = -H_J + H_a
+H = -H_J
 
 # Eig:
 [v, lambda]=eig(H)

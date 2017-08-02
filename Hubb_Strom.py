@@ -11,6 +11,9 @@ u = np.genfromtxt('Hubb_Ham_Zeit_txt/Hubb_Ham_Zeit_Lsg.txt', unpack = 'True').T 
 N = np.round(np.shape(u)[1]/2).astype(int) # Anzahl Iterationsschritte
 x = u[:,0:N] + 1j*u[:,N:N*2]
 
+u_lambda = np.genfromtxt('Hubb_Ham_Zeit_txt/Hubb_Ham_Zeit_Lsg_lambda.txt', unpack = 'True').T # Lösung der SG mit Diagohüpfen, real und imaginär untereinander
+x_lambda = u_lambda[:,0:N] + 1j*u_lambda[:,N:N*2]
+
 # Zeit:
 t = np.genfromtxt('Hubb_Ham_Zeit_txt/Hubb_Ham_Zeit_Linspace.txt', unpack = 'True')
 t0 = t[0]
@@ -28,11 +31,19 @@ for n in range(0,N): # alle Zeiten
 q = 1
 EJ = q * EJ
 
+EJ_lambda =  np.zeros((N,1))*1j
+for n in range(0,N): # alle Zeiten
+    EJ_lambda[n] = np.conj(x_lambda[:,n]).dot(J.dot(x_lambda[:,n]))
+
+EJ_lambda = q * EJ_lambda
+
 # Mittelwert:
 M = np.sum(EJ)/N
-print('Mittelwert:', M)
+M_lambda = np.sum(EJ_lambda)/N
+print('Mittelwert:', M,
+'Mittelwert(lambda):', M_lambda)
 
-plt.plot(t, EJ.real, 'r-', label=r'$\bra{\psi_0(t)} \hat{J} \ket{\psi_0(t)}$')
+plt.plot(t, EJ_lambda.real, 'r-', label=r'$\bra{\psi_0(t)} \hat{J} \ket{\psi_0(t)}$')
 plt.legend(loc='best')
 plt.xlim(t0,t1)
 plt.xlabel(r'$t/J^{-1}$')

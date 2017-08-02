@@ -4,7 +4,7 @@ H_j = cell2mat(struct2cell(load('Hubb_Ham_j.txt')));
 H_d = cell2mat(struct2cell(load('Hubb_Ham_d.txt')));
 
 # Verschiedene WW-Werte:
-a = 1000; # Anzahl Werte  (U=a)
+a = 10000; # Anzahl Werte  (U=a)
 EW = zeros(a,2);
 EW(:,1) = linspace(1,a,a);
 

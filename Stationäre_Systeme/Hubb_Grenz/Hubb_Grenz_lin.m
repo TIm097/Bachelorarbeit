@@ -4,9 +4,9 @@ H_j = cell2mat(struct2cell(load('Hubb_Ham_j.txt')));
 H_d = cell2mat(struct2cell(load('Hubb_Ham_d.txt')));
 
 # Verschiedene WW-Werte:
-a = 900; # Anzahl Werte  (U/J=a)
+a = 40000; # Anzahl Werte  (U/J=a)
 EW = zeros(a,2);
-EW(:,1) = linspace(100,a,a);
+EW(:,1) = linspace(a,a+10000,a);
 
 for o = 1:a;
   H = -H_j + EW(o,1)*H_d;

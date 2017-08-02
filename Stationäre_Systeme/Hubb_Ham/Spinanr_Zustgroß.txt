@@ -1,0 +1,11 @@
+# Created by Octave 4.0.3, Wed Aug 02 21:35:05 2017 CEST <timo@timo-Lenovo-ideapad-100-14IBY>
+# name: Z
+# type: matrix
+# rows: 4
+# columns: 16
+ 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4
+ 1 1 1 2 1 1 1 2 1 1 1 2 1 1 1 2
+ 2 2 3 3 2 2 3 3 2 2 3 3 2 2 3 3
+ 3 4 4 4 3 4 4 4 3 4 4 4 3 4 4 4
+
+

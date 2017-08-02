@@ -83,16 +83,43 @@ end;
 
 save('Hubb_Eig_Ergebn/Hubb_ediff.txt','ediff');
 
-# Für die Tabelle der ersten 8 Eigenenergien in Abh. von U:
+# Für die Tabelle der ersten 6 Eigenenergien in Abh. von U:
 
-a = 10; # Anzahl Werte (U=a)
-eigU = zeros(a,5);
+a = 20; # Anzahl Werte (U=a)
+eigU = zeros(a,7);
 eigU(:,1) = linspace(1,a,a);
 
 for o = 1:a;
   H = -H_j + eigU(o,1)*H_d;
   [v, lambda] = eig(H);
-  eigU(o,2:5) = diag(lambda)(1:4);
+  eigU(o,2:7) = diag(lambda)(1:6);
 end;
 
 save('Hubb_Eig_Ergebn/Hubb_eigU.txt','eigU')
+
+# Für die Lokalisierung des Knicks (mit differenzenquotient):
+
+a = 200; # Anzahl Werte (U=a)
+diff = zeros(a,2);
+lin = linspace(2.4493,2.4496,a);
+diff(:,1) = lin;
+
+for o = 1:a;
+  H = -H_j + diff(o,1)*H_d;
+  [v, lambda] = eig(H);
+  diff(o,2) = lambda(4,4);
+end;
+
+for d = 1:3; # zwei 'Generationen' des Differenzenquotienten
+  diff_neu = zeros(a-d*2,2); # zwei Werte am Rand verschwinden
+  I_1 = diff(1,1); # untere Grenze
+  I_2 = diff(a-(d-1)*2,1); # obere Grenze
+  I = (I_2-I_1)/(a-(d-1)*2)/2; # halbe Intervalllänge
+  diff_neu(:,1) = linspace(I_1+I,I_2-I,a-d*2);
+  for u = 1:(a-d*2);
+    diff_neu(u,2) = (diff(u,2)-diff(u+1,2))/(diff(u+1,1)-diff(u,1)); # Differenzenquotient
+  end;
+  diff = diff_neu;
+end;
+
+diff

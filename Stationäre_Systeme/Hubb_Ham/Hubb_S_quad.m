@@ -1,4 +1,4 @@
-# Hubbard-4-Elektronen-System: Berechnung von <GZ| S^2 |GZ> und <1AZ| S^2 |1AZ>
+# Hubbard-4-Elektronen-System: Berechnung von <psi| S^2 |psi> für alle eigs 
 
 # Zustände:
 Z = cell2mat(struct2cell(load('Hubb_Zust.txt')));
@@ -11,7 +11,7 @@ H_diag = cell2mat(struct2cell(load('Hubb_Ham_d.txt')));
 H_j = cell2mat(struct2cell(load('Hubb_Ham_j.txt')));
 
 # Eigenwerte + Eigenvektoren:
-H = -H_j + 1*H_diag;
+H = -H_j + 4*H_diag;
 [ev,lambda] = eig(H);
 vgz = ev(:,1); 
 v1az = ev(:,2);
@@ -20,7 +20,7 @@ ka = zeros(36,1);
 # Diagonalelemente sind 0, da Sz |GZ> = 0  
 
 # S-|GZ> Komponenten:
-Zspinanr = cell2mat(struct2cell(load('Spinanr_Zust.txt')));
+Zspinanr = cell2mat(struct2cell(load('Spinanr_Zustgroß.txt')));
 
 # S- Hilbertraum:
 sminus = zeros(16,36);
@@ -28,7 +28,7 @@ sminus = zeros(16,36);
 # Für alle Zustände:
 
 # <GZ| S+S- |GZ> = 0, wie erwartet
-# <GZ| S+S- |GZ> = 2, wie erwartet
+# <AZ| S+S- |AZ> = 2, wie erwartet
 
 for p = 1:36;
   v = ev(:,p);

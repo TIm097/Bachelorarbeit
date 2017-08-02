@@ -1,0 +1,11 @@
+# Created by Octave 4.0.3, Sat Jul 29 16:26:28 2017 CEST <timo@timo-Lenovo-ideapad-100-14IBY>
+# name: H
+# type: matrix
+# rows: 4
+# columns: 4
+ -0 -1 -0.2 -1
+ -1 -0 -1 -0.2
+ -0.2 -1 -0 -1
+ -1 -0.2 -1 -0
+
+
