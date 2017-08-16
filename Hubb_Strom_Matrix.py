@@ -43,4 +43,5 @@ for i in range(0,36): # Alle Zeilen (jede i-te Zeile bestimmt alpha des i-ten En
                         if (R[l,:] - Z[i,:]).T.dot(R[l,:] - Z[i,:]) == 0: # Vergleich etwas umständlich, aber funktioniert
                             J[j,i] = vzp * vzl * 1
 
-np.savetxt('Hubb_Ham_Zeit_txt/Hubb_Strom_Matrix.txt', J)
+print(J)
+np.savetxt('Hubb_Ham_Zeit_Lösungen/Hubb_Strom_Matrix.txt', J)

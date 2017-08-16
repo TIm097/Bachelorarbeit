@@ -93,7 +93,7 @@ for j = 2:6;
 end;
 
 H
-[v, lambda] = eig(H)
+[v, lambda] = eig(-H)
 
 
                                                                     

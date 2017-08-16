@@ -68,6 +68,12 @@ for k = 1:36;
   transpose(Splus*ev(:,k))*(Splus*ev(:,k));
 end;
 
+Splus;
+
+Splus(1:16,19:36)
+
+transpose(Splus)*Splus;
+
 # Spin Für die ersten m Eigenvektoren in Abhängigkeit von U, für Tabelle:
 a = 10; #(U/J=a/2)
 m = 6;

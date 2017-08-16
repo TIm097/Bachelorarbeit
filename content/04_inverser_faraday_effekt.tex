@@ -1,0 +1,67 @@
+\chapter{Der inverse Faraday Effekt}
+\label{ch:ife}
+
+In diesem Kapitel wird der inverse Faraday Effekt in Metallen und Isolatoren behandelt.
+Der inverse Faraday-Effekt (im Folgenden mit IFE abgekürzt) beschreibt die Anregung eines Kreisstroms in einem Material durch das Bestrahlen mit zirkular polarisiertem Licht.
+Der angeregte Kreisstrom induziert dabei eine Magnetisierung, die gegebenenfalls mit geordneten magnetischen Momenten im Material wechselwirkt.
+In den folgenden Abschnitten wird ein Ausdruck für diese durch den IFE angeregte Magnetisierung in Metallen und Isolatoren hergeleitet.
+Dabei werden der Magnetfeld-Anteil und die räumliche Oszillation des zirkular polarisierten Lichts vernachlässigt und
+quantenmechanische Effekte der Elektronen im Festkörper ignoriert. \cite{hertel} \cite{jäckl}
+
+\section{Der inverse Faraday Effekt in Metallen}
+
+Die Grundannahme für die Herleitung des IFE in Metallen ist, dass sich die Elektronen wie ein wechselwirkungsfreies Plasma mit der
+Dichte $n(\vec{x},t)$ und der Geschwindigkeit $\vec{v}(\vec{x},t)$ verhalten. Für die elektrische Stromdichte gilt
+\begin{align}
+  \vec{j} = n(\vec{x},t) \cdot \vec{v}(\vec{x},t) = \sigma \cdot \delta \vec{E}(\vec{x},t),
+\end{align}
+wobei $\sigma$ die elektrische Leitfähigkeit des Plasmas ist und
+\begin{align}
+  \delta \vec{E}(t) = \vec{E}_0 \symup{e}^{-\symup{i}\omega t}
+\end{align}
+das zeitlich oszillierende elektrische Feld des polarisierten Lichts mit der Amplitude $\vec{E}_0$ und der Kreisfrequenz $\omega$.
+Ausgehend von der Kontinuitätsgleichung
+\begin{align}
+  \frac{\partial n(\vec{x},t)}{\partial t} + \nabla \left[n(\vec{x},t) \cdot \vec{v}(\vec{x},t)\right] = 0
+\end{align}
+wird durch Separation der Zeitskalen die Magnetisierung
+\begin{align}
+  \vec{M} = -\frac{\symup{i}}{4 \langle n \rangle \omega} \left( \sigma^* \vec{E}_0^* \times \sigma \vec{E}_0 \right)
+  \label{eqn:magnetisierung}
+\end{align}
+hergeleitet, wobei $\langle n \rangle$ der zeitliche Mittelwert der Ladungsdichte ist. Durch Einsetzen der elektrischen
+Leitfähigkeit für das Elektronenplasma
+\begin{align}
+  \sigma = \frac{i \langle n \rangle}{\omega}
+\end{align}
+folgt die im Metall induzierte Magnetisierung durch rechts- bzw. linkszirkular polarisiertes Licht, welches sich in z-Richtung ausbreitet,
+\begin{align}
+  \vec{M}_\text{Metall} = \pm \frac{\langle n \rangle}{4 \omega^3} \left| \vec{E}_0 \right|^2 \vec{e}_z.
+  \label{eqn:metmag}
+\end{align}
+Nach dieser Gleichung können die magnetischen Momente in beispielsweise ferro- oder ferri-magnetischen Metallen präzise
+mit einem zirkular polarisierten Laser angeregt und unter bestimmten Umständen sogar permanent manipuliert werden. \cite{hertel}
+
+\section{Der inverse Faraday Effekt in Isolatoren}
+\label{sec:ifeiso}
+
+Bei der Herleitung des IFE in Metallen ist die einzige materialspezifische Größe, welche eingesetzt wird,
+die Leitfähigkeit des Elektronenplasmas. Um eine Abschätzung für die Abhängigkeiten des IFE in einem Mott-Isolator zu generieren,
+wird die elektrische Leitfähigkeit eines Isolators\cite{fließbach}
+\begin{align}
+  \sigma = \symup{i} \omega \mathcal{C}
+\end{align}
+in die Magnetisierung \eqref{eqn:magnetisierung} eingesetzt, wobei $\mathcal{C}$ eine Konstante ist, die von den Dielektrizitäts-Eigenschaften des Materials abhängt.
+Daraus ergibt sich die induzierte Magnetisierung durch rechts- bzw. linkszirkular polarisiertes Licht, welches sich in z-Richtung ausbreitet,
+\begin{align}
+  \vec{M}_\text{Ioslator} = \pm \frac{\omega \mathcal{C}^2}{4 \langle n \rangle} \left| \vec{E}_0 \right|^2 \vec{e}_z.
+  \label{eqn:isomag}
+\end{align}
+
+Aus diesem Kapitel tritt hervor, dass durch den IFE sowohl in einem Metall, als auch in einem Isolator eine endliche Magnetisierung angeregt werden kann.
+Für ferrimagnetische Isolatoren ist dies auch experimentell bestätigt und zur Erzeugung von Spinwellen ausgenutzt worden\cite{jäckl}.
+Mit den theoretischen Grundlagen aus Kapitel \ref{ch:theorie} und den vorgestellten Isolator-Modellen aus Kapitel \ref{ch:isolatormodelle}
+wird im folgenden Kapitel \ref{ch:ergebnisse} ein Mott-Hubbard-Isolator modelliert und untersucht.
+Daraufhin wird zur Untersuchung des IFE in diesem Isolator ein rotierendes E-Feld zur Modellierung von zirkular polarisiertem Licht eingeschaltet und
+der Erwartungswert für den angeregten Kreisstrom berechnet. Dieser wird in Abhängigkeit von der Amplitude und der Frequenz des E-Felds aufgetragen
+und mit der vorausgesagten induzierten Magnetisierung \eqref{eqn:isomag} verglichen. \cite{hertel}

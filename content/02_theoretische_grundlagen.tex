@@ -1,88 +1,85 @@
 \chapter{Theoretische Grundlagen und Konventionen}
+\label{ch:theorie}
 
-Dieses Kapitel beschäftigt sich mit einigen Grundlagen der Quantenmechanik, darunter die zentralen Postulate
-und die Darstellungen von fermionischen Zuständen und Operatoren in erster und zweiter Quantisierung.
-Es wird in atomaren Einheiten gerechnet, das heißt unter anderem
-\begin{align}
-  \hbar = \symup{e} = \symup{m_e} = 1.
-\end{align}
-Vektoren sind durch fettgedruckte Symbole, z.B. $\symbf{x}$ für den Ortsvektor, gekennzeichnet.
+In diesem Kapitel werden einige Grundlagen der Quantenmechanik, darunter die zentralen Postulate
+und die Darstellungen von fermionischen Zuständen und Operatoren in erster und zweiter Quantisierung, vorgestellt.
+Im Rahmen dieser Arbeit wird in atomaren Einheiten gerechnet, das heißt
+\begin{align*}
+  \hbar = \symup{e} = \symup{m_e} = \frac{1}{4\symup{\pi}\epsilon_0} = 1.
+\end{align*}
 
-\section{Die Schrödingergleichung}
+\section{Die Postulate der Quantenmechanik}
 \label{sec:schroedingergleichung}
 
-In der Quantenmechanik sind den Observablen der klassischen Physik Operatoren zugeordnet.
-Die zeitliche Entwicklung eines quantenmechanischen, nicht-relativistischen Zustandes in Ortsdarstellung $\Psi(\symbf{x}_1,...,\symbf{x}_N,t)$ in einem physikalischen System aus $N$ Teilchen ist durch die Schrödingergleichung
+In der Quantenmechanik werden die Messgrößen der klassischen Physik durch lineare, hermitesche Operatoren dargestellt.
+Eine Observable in einem quantenmechanischen System ist durch den Erwartungswert des zugehörigen Operators $A$
 \begin{align}
-  \symup{i} \frac{\partial}{\partial t} \Psi(\symbf{x}_1,...,\symbf{x}_N,t) = H(\symbf{x}_1,...,\symbf{x}_N,t) \Psi(\symbf{x}_1,...,\symbf{x}_N,t)
+  \langle A \rangle (t) = \bra{\Psi(t)} A \ket{\Psi(t)}
+\end{align}
+bezogen auf den Zustand $\Psi$ charakterisiert.
+Die zeitliche Entwicklung eines quantenmechanischen Zustands in Ortsdarstellung $\Psi(\vec{x}_1,...,\vec{x}_N,t)$ für ein System aus $N$ Teilchen ist durch die Schrödingergleichung
+\begin{align}
+  \symup{i} \frac{\partial}{\partial t} \Psi(\vec{x}_1,...,\vec{x}_N,t) = H(\vec{x}_1,...,\vec{x}_N,t) \Psi(\vec{x}_1,...,\vec{x}_N,t)
   \label{eqn:schroedingergleichung}
 \end{align}
-gegeben. Dabei ist
-\begin{align}
-  H(\symbf{x}_1,...,\symbf{x}_N,t) = \sum_{n=1}^{N} \left( -\frac1{2 m_n} \symbf{\nabla}_n^2 \right) + V(\symbf{x}_1,...,\symbf{x}_N,t)
-  \label{eqn:hamiltonian}
-\end{align}
-der Hamiltonoperator oder auch Hamiltonian in Ortsdarstellung und $V(\symbf{x}_1,...,\symbf{x}_N,t)$ ein Potential, welches das System charakterisiert.
-Wenn das Potential $V$ und somit auch der Hamiltonian $H$ zeitunabhängig ist, werden in der Schrödingergleichung \eqref{eqn:schroedingergleichung} Ort $\symbf{x}$ und Zeit $t$ mit dem Ansatz
-\begin{align}
-  \Psi(\symbf{x}_1,...,\symbf{x}_N,t) = \Phi(\symbf{x}_1,...,\symbf{x}_N)f(t)
-  \label{eqn:separation}
-\end{align}
+gegeben, wobei $H(\vec{x}_1,...,\vec{x}_N,t)$ der Hamiltonoperator in Ortsdarstellung ist.
+Wenn dieser zeitunabhängig ist, werden in der Schrödingergleichung \eqref{eqn:schroedingergleichung} Ort $\vec{x}$ und Zeit $t$ mit dem Ansatz
+\begin{align*}
+  \Psi(\vec{x}_1,...,\vec{x}_N,t) = \varphi(\vec{x}_1,...,\vec{x}_N)f(t)
+\end{align*}
 separiert. Die daraus resultierende stationäre Schrödingergleichung
 \begin{align}
-  H \Phi_\alpha(\symbf{x}_1,...,\symbf{x}_N) = E_\alpha \Phi_\alpha(\symbf{x}_1,...,\symbf{x}_N)
+  H \varphi_\alpha(\vec{x}_1,...,\vec{x}_N) = E_\alpha \varphi_\alpha(\vec{x}_1,...,\vec{x}_N)
   \label{eqn:statschroedinger}
 \end{align}
-ist nur noch von den Orten $\symbf{x}_1,...,\symbf{x}_N$ der Teilchen abhängig und die Wellenfunktionen $\Psi_\alpha(\symbf{x}_1,...,\symbf{x}_N,t)$, welche die Schrödingergleichung \eqref{eqn:schroedingergleichung} lösen, sind Eigenzustände des Hamiltonoperators $H$ zu den Eigenwerten $E_\alpha$.
-Der zeitabhängige Teil der Wellenfunktionen $\Psi_\alpha(\symbf{x}_1,...,\symbf{x}_N,t)$ ist gegeben durch
+ist nur noch von den Orten $\vec{x}_1,...,\vec{x}_N$ der Teilchen abhängig und die Wellenfunktionen $\Psi_\alpha(\vec{x}_1,...,\vec{x}_N,t)$, welche die Schrödingergleichung \eqref{eqn:schroedingergleichung} lösen, sind Eigenzustände des Hamiltonoperators $H$ zu den Eigenwerten $E_\alpha$.
+Der ebenfalls resultierende zeitabhängige Teil der Schrödingergleichung ist gegeben durch
 \begin{align}
   f_\alpha(t) = \symup{e}^{-\symup{i} E_\alpha t}.
 \end{align}
-Wenn das Potential $V$ und der Hamiltonoperator $H$ zeitabhängig sind, kann die Schrödingergleichung \eqref{eqn:schroedingergleichung} nicht separiert werden, sondern in den meisten Fällen nur numerisch, zum Beispiel durch ein Integrationsverfahren, gelöst werden.
-Die Aufenthaltswahrscheinlichkeit eines Teilchen $n$ im Volumenelement $\symup{d}^3x_n$ zum Zeitpunkt $t$ ist gegeben durch
-\begin{align}
-  P_n = \lvert \Psi(\symbf{x}_1,...,\symbf{x}_N,t) \rvert^2 \symup{d}^3x_n.
-\end{align}
-Nähere Informationen zur Herleitung und Lösung der Schrödingergleichung und zu den Postulaten der Quantenmechanik können Quelle \cite{schwabl} entnommen werden.
+In dem Fall, dass der Hamiltonoperator $H$ zeitabhängig ist, kann die Schrödingergleichung \eqref{eqn:schroedingergleichung} nicht separiert werden, sondern in den meisten Fällen numerisch, z.B. durch ein Integrationsverfahren, gelöst werden.
+%Die Aufenthaltswahrscheinlichkeit eines Teilchen $n$ im Volumenelement $\symup{d}^3x_n$ zum Zeitpunkt $t$ ist gegeben durch
+%\begin{align}
+%  P_n = \lvert \Psi(\vec{x}_1,...,\vec{x}_N,t) \rvert^2 \symup{d}^3x_n.
+%\end{align}
+Diese und weitere Informationen zu den Postulaten der Quantenmechanik und zur Herleitung der Schrödingergleichung können dem Lehrbuch \cite{schwabl} entnommen werden.
 
 \section{Fermionische Niveau-Systeme und die erste und zweite Quantisierung}
 
-Ein fermionisches Niveau-System besteht aus einer Menge an Besetzungsniveaus, denen jeweils eine Menge $k$ an Quantenzahlen zugeordnet sind, und einer Anzahl $N_e$ an Fermionen, die auf den Niveaus verteilt sind.
-Auf jedem Niveau kann sich wegen des Pauliprinzips(footnote) maximal ein Fermion befinden.
+Ein fermionisches Niveau-System setzt sich aus einer Menge an Niveaus, denen jeweils ein vollständiger Satz $k$ an Quantenzahlen zugeordnet ist, und einer Anzahl $N_e$ an Fermionen, die auf den Niveaus verteilt sind, zusammen.
+Auf jedem Niveau kann sich aufgrund des Pauliprinzips\footnote{Zwei Fermionen eines Vielteilchensystems unterscheiden sich in mindestens einer Quantenzahl.} maximal ein Fermion befinden.
 
-Sei der Zustand $\ket{k_i}^i$ eine Lösung der Schrödingergleichung für ein Teilchen in einem gegebenen, fermionischen Niveau-System.
-Dann wird ein Vielteilchenzustand, bestehend aus $N_e$ Teilchen, in diesem Niveau-System gemäß
+Zu einem Einteilchen-Basiszustand $\ket{k_i}$, welcher die Schrödingergleichung für ein gegebenes fermionisches Niveau-System löst,
+wird ein Vielteilchenzustand mit Hilfe des Tensorprodukts gemäß
 \begin{align}
-  \ket{\Psi} = \frac{1}{\sqrt{N_e}} \sum_{P} (-1)^{\chi_P} \bigotimes\limits_{i=1}^{N_e} \ket{k_{P(i)}}^i
+  \ket{\Psi} = \frac{1}{\sqrt{N_e}} \sum_{P} (-1)^{\chi_P} \bigotimes\limits_{i=1}^{N_e} \ket{k_{P(i)}}
   \label{eqn:vtdarstellung1quant}
 \end{align}
-über das Tensorprodukt(footnote) der Einteilchen-Basiszustände $\ket{k_i}^i$ in erster Quantisierung dargestellt.
-Dabei wird über alle Permutationen $P$ der Basiszustände summiert und $\chi_P$ gibt jeweils die Anzahl an Transmissionen, die zur Permutation $P$ führen, an.
-Die Darstellung der Vielteilchenzustände in erster Quantisierung aus Gleichung \eqref{eqn:vtdarstellungeinteilchenbasis} wird im Folgenden mit
-\begin{align}
-  \ket{\Psi} = \ket{k_1,...,k_{N_e}}
-  \label{eqn:vtdarstellung1quantkurz}
-\end{align}
-abgekürzt.
+in erster Quantisierung dargestellt. Die Summe läuft dabei über alle verschiedenen Permutationen $P$ der Basiszustände und $\chi_P$ gibt jeweils die Anzahl an Transmissionen, die zur jeweiligen Permutation $P$ führen, an.
 
-In der zweiten Quantisierung werden die Vielteilchenzustände nicht durch ein Tensorprodukt der Einteichenzustände, sondern über die Besetzungszahlen der Niveaus gemäß
+In der zweiten Quantisierung werden die Vielteilchenzustände nicht durch ein Tensorprodukt der Einteichen-Basiszustände, sondern über die Besetzungszahlen der Niveaus mit
 \begin{align}
   \ket{\Psi} = \ket{N_1,N_2,...,N_i,...}
 \end{align}
 dargestellt, wobei $N_i \in \{ 0,1 \}$ die Besetzungszahl des i-ten Niveaus ist. Diese Darstellung folgt aus der Ununterscheidbarkeit der Teilchen.
-Um einen fermionischen Operator in zweiter Quantisierung darzustellen, werden zunächst die auf dem Fockraum(footnote) definierten fermionischen Erzeugungs- und Vernichtungsoperatoren $c^\dag$ und $c$ eingeführt.
+Um einen fermionischen Operator in zweiter Quantisierung auszudrücken, werden zunächst die fermionischen Erzeugungs- und Vernichtungsoperatoren $c^\dag$ und $c$ eingeführt.
 Diese ändern die Teilchenzahl eines fermionischen Vielteilchenzustands mit den Vorschriften
 \begin{align}
   c_i^{\phantom{\dag}} \ket{N_1,N_2,...,N_i,...} & = \pm N_i \ket{N_1,N_2,...,N_i-1,...} \label{eqn:vernichter}\\
   c_i^\dag \ket{N_1,N_2,..., N_i,...} & = \pm (1-N_i) \ket{N_1,N_2,...,N_i+1,...} \label{eqn:erzeuger}
 \end{align}
-um $1$. Das Vorzeichen in \eqref{eqn:vernichter} und \eqref{eqn:erzeuger} resultiert aus der Antisymmetrie der fermionischen Wellenfunktion und hängt von der Anzahl und Besetzung der Niveaus im Vielteilchenzustand ab.
-Ein beliebiger Einteilchen-Operator eines fermionischen Vielteilchensystems ist in erster Quantisierung durch
+um $1$ und genügen den Antikommutatorrelationen
 \begin{align}
-  A = \sum_{i=1}^{N_e} A(\symbf{r}_i)
+  \{ c_i^\dag, c_j^{\phantom{\dag}} \} & = \delta_{ij} & \{ c_i^{\phantom{\dag}}, c_j^{\phantom{\dag}} \} = \{ c_i^\dag, c_j^\dag \} = 0.
+  \label{eqn:ckommutatoren}
 \end{align}
-gegeben, wobei über alle Teilchen im System summiert wird und $A(\symbf{r}_i)$ auf das i-te Teilchen des Vielteilchensystems wirkt.
-Der Operator ergibt sich in zweiter Quantisierung durch eine Linearkombination der Erzeugungs- und Vernichtungsoperatoren
+Das Vorzeichen in den Vorschriften \eqref{eqn:vernichter} und \eqref{eqn:erzeuger} resultiert aus der Antisymmetrie der fermionischen Wellenfunktion und hängt von der Anzahl und Besetzung der Niveaus ab.
+Ein beliebiger Einteilchenoperator eines fermionischen Vielteilchensystems ist in erster Quantisierung durch
+\begin{align}
+  A = \sum_{i=1}^{N_e} A(\vec{r}_i)
+\end{align}
+gegeben, wobei $A(\vec{r}_i)$ jeweils auf das i-te Teilchen eines Vielteilchenzustands wirkt.
+In zweiter Quantisierung ergibt sich der Operator aus einer Linearkombination der Erzeugungs- und Vernichtungsoperatoren
 \begin{align}
   A = \sum_{m,n} A_{mn} c_m^\dag c_n^{\phantom{\dag}},
 \end{align}
@@ -91,73 +88,72 @@ wobei die Koeffizienten
   A_{mn} = \bra{k_m} A \ket{k_n}
   \label{eqn:matrixelemente}
 \end{align}
-die Matrixelemente des Operators bezogen auf die Einteilchen-Basis-Zustände $\ket{k_m}$ bzw. $\ket{k_n}$ sind.
-Weitere Informationen zu Vielteilchensystemen und zur zweiten Quantisierung können Quelle \cite{cy} entnommen werden.
-
-\section{Der Besetzungszahloperator}
-
-Die fermionischen Vielteilchenzustände sind Eigenfunktionen der Besetzungszahloperatoren
-\begin{align}
-  n_i = c_i^\dag c_i^{\phantom{\dag}},
-  \label{eqn:besetzer}
-\end{align}
-wobei die zugehörigen Eigenwerte jeweils die Besetzungszahlen $N_i$ der Niveaus sind.
-Der Wertebereich der Eigenwerte ist aufgrund des Pauliprinzips auf $N_i \in \{ 0,1 \}$ beschränkt.
+die Matrixelemente des Operators bezogen auf die Einteilchen-Basiszustände $\ket{k_m}$ bzw. $\ket{k_n}$ sind.
+In den folgenden Abschnitten werden mehrere Operatoren vorgestellt und in zweiter Quantisierung ausgedrückt.
+Dabei werden ausschließlich Vielteilchensysteme, bestehend aus Elektronen, betrachtet. \cite{czycholl}
 
 \section{Der \texorpdfstring{$\symbf{S}^2$}{TEXT}- Operator}
 
-Die Indizes der Erzeugungs- und Vernichtungsoperatoren werden im Folgenden um einen zusätzlichen Parameter $\sigma$, der die Spinausrichtung eines Fermions angibt, erweitert.
-Die Einteilchen-Zustände eines fermionischen Vielteilchensystems spalten sich dadurch jeweils in zwei im Ort entartete Zustände auf, die sich nur in der Spinausrichtung $\sigma$ unterscheiden.
-Der Parameter $\sigma$ kann die Werte $\sigma = \frac12$, für Spin Up ($\uparrow$), und $\sigma = -\frac12$, für Spin Down ($\downarrow$), annehmen.
-\cite{schwabl}
+Die Indizes der Erzeugungs- und Vernichtungsoperatoren werden im Folgenden um den zusätzlichen Parameter $\sigma$, der die Spinausrichtung eines Elektrons angibt, erweitert.
+Die Einteilchen-Zustände eines Vielteilchensystems spalten sich dadurch jeweils in zwei im Ort entartete Zustände auf, die sich lediglich in der Spinausrichtung $\sigma$ unterscheiden.
+Der Parameter $\sigma$ kann dabei die Werte $\sigma = \frac12$, für Spin-Up ($\uparrow$), und $\sigma = -\frac12$, für Spin-Down ($\downarrow$), annehmen.
 
 Die Quantisierungsachse wird in z-Richtung gelegt, sodass der $S_x$- und der $S_y$-Operator durch die
-Leiteroperatoren $S_+$ und $S_-$ ersetzt werden können. Der $S^2$-Operator eines fermionischen Einteilchen-Systems lautet in erster Quantisierung
+Leiteroperatoren $S_+$ und $S_-$, welche die Kommutatorrelation
 \begin{align}
-  S^2 & = S_z^2 + \frac12 \left( S_+ S_- + S_- S_+ \right).
+  \left[ S_+ , S_- \right] & = 2 S_z
+  \label{eqn:skommutator}
+\end{align}
+erfüllen, ersetzt werden können. Für ein Einteilchen-System lautet der $S^2$-Operator in erster Quantisierung
+\begin{align}
+  \symbf{S}^2 & = S_z^2 + \frac12 \left( S_+ S_- + S_- S_+ \right).
   \label{eqn:squadoperatorein}
 \end{align}
-Die Wirkung des $S_z$-Operators und der Leiteroperatoren $S_+$ und $S_-$ ist durch
-\begin{align}
-  S_z \ket{\uparrow} & = 0.5\ket{\uparrow} & S_z \ket{\downarrow} & = -0.5\ket{\downarrow} \label{eqn:szwirkung}\\
-  S_+ \ket{\uparrow} & = 0 & S_+ \ket{\downarrow} & = \ket{\uparrow} \label{eqn:spluswirkung}\\
-  S_- \ket{\uparrow} & = \ket{\downarrow} & S_- \ket{\downarrow} & = 0 \label{eqn:sminuswirkung}
-\end{align}
-gegeben. Das Anwenden des $S_+$-Operators auf einen Einteilchenzustand entspicht dem Vernichten eines Elektrons mit Spin Down gefolgt vom Erzeugen
-eines Elektrons mit Spin Up. Dies gilt auch für den $S_-$-Operator mit vertauschten Spins. Daraus folgt Darstellung der Spin-Leiteroperatoren in zweiter Quantisierung
+%Die Wirkung des $S_z$-Operators und der Leiteroperatoren $S_+$ und $S_-$ ist durch
+%\begin{align}
+%  S_z \ket{\uparrow} & = \tfrac12\ket{\uparrow} & S_z \ket{\downarrow} & = -\tfrac12\ket{\downarrow} \label{eqn:szwirkung}\\
+%  S_+ \ket{\uparrow} & = 0 & S_+ \ket{\downarrow} & = \ket{\uparrow}\phantom{\tfrac12} \label{eqn:spluswirkung}\\
+%  S_- \ket{\uparrow} & = \ket{\downarrow} & S_- \ket{\downarrow} & = 0\phantom{\tfrac12} \label{eqn:sminuswirkung}
+%\end{align}
+%gegeben.
+Das Anwenden des $S_+$-Operators auf einen Spin-Down-Einteilchenzustand entspicht dem Vernichten des Elektrons mit Spin-Down gefolgt vom Erzeugen
+eines Elektrons mit Spin-Up. Dies gilt auch für den $S_-$-Operator mit vertauschten Spins. Daraus folgt die Darstellung der Spin-Leiteroperatoren in zweiter Quantisierung
 \begin{align}
   S_+ & = c_\uparrow^\dag c_\downarrow^{\phantom{\dag}} & S_- & = c_\downarrow^\dag c_\uparrow^{\phantom{\dag}}. \label{eqn:leitersecondquant}
 \end{align}
-Aus der Eigenwertgleichung \eqref{eqn:szwirkung} für den $S_z$-Operator folgt die Darstellung des Operators in zweiter Quantisierung
+Der $S_z$-Operator liefert bei Anwendung auf einen Einteilchenzustand den Eigenwert $\sigma$, sodass er in zweiter Quantisierung gemäß
 \begin{align}
-  S_z = \frac12 (n_\uparrow -  n_\downarrow) = \frac12 (c_\uparrow^\dag c_\uparrow^{\phantom{\dag}} - c_\downarrow^\dag c_\downarrow^{\phantom{\dag}}) \label{eqn:szsecondquant}.
+  S_z = \frac12 (n_\uparrow - n_\downarrow) = \frac12 (c_\uparrow^\dag c_\uparrow^{\phantom{\dag}} - c_\downarrow^\dag c_\downarrow^{\phantom{\dag}}) \label{eqn:szsecondquant}.
 \end{align}
-\cite{schwabl}
+dargestellt wird, wobei $n_\sigma = c_\sigma^{\dag}c_\sigma^{\phantom{\dag}}$ der Besetzungszahloperator ist.
 
-Durch summieren der Einteilchenoperatoren $S_{+,i}$, $S_{-,i}$ und $S_{z,i}$ über alle Niveaus $i$ bzw. $j$ folgt aus den Gleichungen \eqref{eqn:squadoperatorein}, \eqref{eqn:leitersecondquant}
-und \eqref{eqn:szsecondquant} die Darstellung des $S^2$-Operators in zweiter Quantisierung für ein fermionisches Vielteilchensystem
+Durch Summieren der Einteilchenoperatoren $S_{+}$, $S_{-}$ und $S_{z}$ über alle Niveaus $i$ bzw. $j$ folgt aus den Gleichungen \eqref{eqn:squadoperatorein}, \eqref{eqn:leitersecondquant}
+und \eqref{eqn:szsecondquant} die Darstellung des $S^2$-Operators in zweiter Quantisierung für ein Vielteilchensystem aus Elektronen
 \begin{align}
-  S^2 & = \frac14 \left(\sum_{i} \left( n_{\uparrow,i} - n_{\downarrow,i}\right)\right)^2 +
+  \symbf{S}^2 & = \frac14 \left(\sum_{i} \left( n_{\uparrow,i} - n_{\downarrow,i}\right)\right)^2 +
   \frac12  \sum_{i,j}\left( c_{\uparrow,i}^\dag c_{\downarrow,i}^{\phantom{\dag}} \cdot c_{\downarrow,j}^\dag c_{\uparrow,j}^{\phantom{\dag}} +
   c_{\downarrow,i}^\dag c_{\uparrow,i}^{\phantom{\dag}} \cdot c_{\uparrow,j}^\dag c_{\downarrow,j}^{\phantom{\dag}} \right) .
   \label{eqn:squadoperatorviel}
 \end{align}
-Die Vielteilchenzustände sind Eigenfunktionen des $S^2$-Operators zu den Eigenwerten $S(S+1)$.
-\cite{???}
+Die Ein- und Vielteilchenzustände sind Eigenfunktionen des $S^2$-Operators zu den Eigenwerten $S(S+1)$.
+\cite{schwabl,czycholl}
 
-\section{Der Ladungsdichteoperator}
+\section{Der Ladungsdichteoperator und der Stromoperator}
+\label{sec:stromoperator}
 
-Für ein Vielteilchensystem aus Elektronen lässt sich ein Ladungsdichteoperator definieren, der sich gemäß
+Für ein Vielteilchensystem aus Elektronen, die sich an diskreten Gitterplätzen eines eindimensionalen Gitters befinden, wird der Ladungsdichteoperator
 \begin{align}
-  \rho = -\sum_{i,\sigma} n_{i,\sigma}
+  \rho_k = - \sum_{\sigma} c_{k,\sigma}^{\dag} c_{k,\sigma}^{\phantom{\dag}}
   \label{eqn:ladungsdichteoperator}
 \end{align}
-aus den Besetzungszahloperatoren darstellen lässt.
-\cite{cy}
-
-
-Footnotes und evtl Lehrbuchverweise
-
-Kommutatoren c c und S+ -
-
-Erwartungswertpostulat
+für den $k$-ten Gitterplatz in zweiter Quantisierung definiert.
+Aus der Kontinuitätsgleichung für die eindimensionale elektrische Stromdichte $j$
+\begin{align}
+  \frac{\partial \rho}{\partial t} + \frac{\partial j}{\partial x} = 0
+\end{align}
+und der Heisenbergschen Bewegungsgleichung
+\begin{align}
+  \frac{\symup{d}\rho}{\symup{d}t} = \symup{i} \left[ H,\rho \right]
+\end{align}
+kann für ein eindimensionales System, welches durch den Hamiltonoperator $H$ beschrieben ist,
+der Stromoperator hergeleitet werden. \cite{schwabl,czycholl}

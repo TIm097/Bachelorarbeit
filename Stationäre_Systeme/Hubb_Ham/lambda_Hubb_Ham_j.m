@@ -1,6 +1,6 @@
 # Hubbard-4-Elektronen-System: Nichtdiagonelelemente des Hamiltonian mit Diagonalhüpfen
 
-lambda = 0.2
+lambda = 2
 # Zustandsvektoren:
 Z = cell2mat(struct2cell(load('Hubb_Zust.txt')));
 z = linspace(1,36,36);
@@ -79,6 +79,11 @@ end;
 H_j;
 
 save('lambda_Hubb_Ham_j.txt', 'H_j');
+H = -H_j;
 
-H = -H_j
-[lambda,v] = eig(H) 
+Htb = cell2mat(struct2cell(load('Hubb_Ham_j.txt')));
+
+T = H+Htb;
+T(19:36,19:36)
+
+#[lambda,v] = eig(H);

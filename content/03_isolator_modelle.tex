@@ -1,0 +1,130 @@
+\chapter{Isolator-Modelle}
+\label{ch:isolatormodelle}
+
+In diesem Kapitel werden verschiedene Arten von theoretischen Isolatoren aufgezählt und mehrere Isolator-Modelle vorgestellt.
+Die Modelle werden dabei auf Nächst-Nachbar-Wechselwirkungen und eindimensionale Gittersysteme mit periodischen Randbedingungen reduziert.
+Festkörper können anhand ihrer elektrischen Leitfähigkeit in Metalle und Isolatoren unterteilt werden,
+wobei der physikalische Unterschied in der Bandstruktur der Elektronendispersion liegt.
+In Metallen ist das Leitungsband bei beliebigen Temperaturen teilweise gefüllt, sodass die Elektronen theoretisch mit beliebig kleinen Energien angeregt werden können.
+Daher ist der Realteil der Leitfähigkeit endlich und es kann ein Stromfluss generiert werden.
+Bei Isolatoren befindet sich die Fermienergie $\epsilon_F$ in einer Bandlücke der Bandstruktur, sodass das unterste Leitungsband am Temperaturnullpunkt unbesetzt ist.
+Der Realteil der Leitfähigkeit von Isolatoren ist somit gering, da für die Anregung eines Elektrons mindestens die Energie der Bandlücke aufgebracht werden muss,
+und verschwindet für $T \to 0$. Im folgenden Abschnitt werden verschiedene Ursachen für die Enstehung eines leeren Leitungsbandes aufgezählt und damit
+theoretische Isolatoren klassifiziert. \cite{czycholl,gebhard}
+
+\section{Klassifizierung von Isolatoren}
+\label{sec:klassifizierung}
+
+Ein Metall-Isolator-Übergang kann durch mehrere Phänomene, die den Elektronentransport im Festkörper beeinflussen, auftreten.
+In diesem Abschnitt werden verschiedene theoretische Isolatoren vorgestellt, die ihre Isolator-Eigenschaft jeweils durch eines dieser Phänomene erhalten.
+Bei einem Band-Isolator verursacht die direkte Wechselwirkung zwischen den Elektronen und dem periodischen Gitterpotential eine Bandlücke und ein leeres Leitungsband.
+Dabei muss die Anzahl an Elektronen pro Elementarzelle gerade sein, da nur in diesem Fall ein leeres Leitungsband entstehen kann.
+Der Peierls-Isolator erhält seine Isolator-Eigenschaft durch den Einfluss eines effektiven Gitterpotentials, welches aus der Bildung von statischen Gitterverzerrungen
+und damit verbundenen Ladungsdichtewellen durch die Wechselwirkung zwischen Elektronen und Gitter entsteht.
+Beim Anderson-Isolator liegt die Ursache für die geringe Leitfähigkeit in der Wechselwirkung zwischen Elektronen und Gitterfehlern.
+Die Unordnung im Gittersystem, die durch die Gitterfehler hervorgerufen wird, führt zu einer Lokalisierung der Elektronen und somit zu einem Metall-Isolator-Übergang.
+Der Mott-Isolator ist durch eine nicht vernachlässigbare Coulomb-Wechselwirkung der Elektronen untereinander charakterisiert.
+Dabei wird zwischen dem Mott-Hubbard-Isolator, bei welchem die Isolator-Eigenschaft aus der Ladungskorrelation resultiert,
+und dem Mott-Heisenberg-Isolator, bei welchem die Spinkorrelation für die Isolator-Eigenschaft ausschlaggebend ist, unterschieden.
+Im folgenden Abschnitt wird ein grundlegendes Festkörper-Modell vorgestellt, das zur Beschreibung der aufgezählten Isolatoren jeweils unterschiedlich erweitert werden kann.
+\cite{czycholl,gebhard}
+
+\section{Das Tight-Binding-Modell}
+
+Um Aussagen über Bandstrukturen von Festkörpern zu machen, werden verschiedene Ansätze für das Verhalten der Elektronen im Gitterpotential gemacht.
+Während die Elektronen im Bloch-Theorem als quasifrei in einem schwachen periodischen Gitterpotential angenommen werden, so werden sie
+im Tight-Binding-Modell als gebunden und an den diskreten Gitterplätzen lokalisiert angenommen. Das Tight-Binding-Modell ist unter anderem Grundlage für das Hubbard-Modell,
+das zur Beschreibung von Hubbard-Mott-Isolatoren dient, und wird deshalb im Folgenden kurz beschrieben.
+
+Mit der Annahme einer starken Bindung fallen die Wellenfunktionen der Elektronen eines isolierten Atoms signifikant mit mit dem Abstand zum Kern ab.
+Wenn der Abstand zwischen den Atomen eines Festkörpers hinreichend groß ist, überlappen sich die Wellenfunktionen der Elektronen eines Atoms näherungsweise nicht mit
+den Coulomb-Potentialen der umgebenden Atome. Somit sind die Eigenzustände und -energien des atomaren Problems auch Eigenzustände und -energien des gesamten Festkörpersystems.
+Die Dynamik ist dann durch diskrete Sprünge der Elektronen zwischen den Gitterplätzen, hervorgerufen durch den Tunneleffekt, gegeben.
+Ausgehend von diesen Annahmen, lautet der Hamiltonoperator des Tight-Binding-Modells in zweiter Quantisierung
+\begin{align}
+  H_\text{Tb} = -J \sum_{i,\sigma} (c_{i+1,\sigma}^{\dag}c_{i,\sigma}^{\phantom{\dag}} + c_{i,\sigma}^{\dag}c_{i+1,\sigma}^{\phantom{\dag}}).
+  \label{eqn:hamiltontb}
+\end{align}
+Summiert wird über alle Gitterplätze $i$ und Spinausrichtungen $\sigma \in \{ \uparrow,\downarrow \}$ der Elektronen.
+Der Koeffizient $J$ gibt die Stärke der Tight-Binding-Wechselwirkung an und ist daher mit der Tunnelwahrscheinlichkeit eines Elektrons zwischen zwei Gitterplätzen korreliert. \cite{czycholl}
+
+\section{Das Hubbard-Modell und der Hubbard-Mott-Isolator}
+\label{sec:hubbardmodell}
+
+In diesem Abschnitt wird zunächst das Zustandekommen des Metall-Mott-Hubbard-Isolator-Übergangs für ein eindimensionales Gittersystem erklärt und anschließend
+eine mathematische Beschreibung des Hubbard-Modells angegeben.
+Der Tight-Binding-Ansatz liefert für ein eindimensionales Gittersystem mit der Gitterkonstante $a$ die Dispersionsrelation
+\begin{align}
+  E(k) = -2J \cos \left(ka \right).
+  \label{eqn:dispersion}
+\end{align}
+Diese beschreibt genau ein Energieband mit der zur Tight-Binding-Stärke korrelierten Bandbreite $W = 4J$.
+Um die starke Elektron-Elektron-Wechselwirkung, die im Mott-Isolator angenommen wird, zu realisieren, wird der Hubbard-Parameter $U$, welcher die Energiedifferenz
+zwischen einem doppelt besetzten Gitterplatz $(\uparrow \downarrow;0)$ und zwei einzeln besetzten Gitterplätzen $(\uparrow; \downarrow)$ angibt, eingeführt.
+Es kann gezeigt werden, dass sich das Energieband \eqref{eqn:dispersion} für einen endlichen Hubbard-Parameter $U$ in zwei Energiebänder aufspaltet. Diese überlappen
+für $U \ll W$ und driften für einen ansteigenden Hubbard-Parameter $U$ auseinander.
+Etwa bei $U=W$ entsteht eine Lücke für Ladungsanregungen, sodass ein Metall-Mott-Hubbard-Isolator-Übergang stattfindet.
+
+Um den Hamiltonoperator des Hubbard-Modells aufzustellen, wird der Hamiltonoperator des Tight-Binding-Modells wie in der vorgestellten Herleitung um einen
+Potentialterm, der abhängig von $U$ ist, erweitert. Da der Potentialterm genau dann von Null verschieden ist, wenn eine Doppelbesetzung $n_{i,\uparrow} n_{i,\downarrow} = 1$ vorliegt,
+ergibt sich
+\begin{align}
+  H_\text{Hubb} = H_\text{Tb} + U \sum_{i} n_{i,\uparrow} n_{i,\downarrow},
+  \label{eqn:hamiltonhubb}
+\end{align}
+wobei über die Gitterplätze $i$ summiert wird.
+Zu diesem Hamiltonoperator folgt mit dem Ansatz aus Abschnitt \ref{sec:stromoperator} für ein Gittersystem aus $N$ Gitterplätzen der
+über alle Gitterplätze gemittelte Stromoperator
+\begin{align}
+  \mathcal{J} = \frac{\symup{i}J}{N} \sum_{i,\sigma} (c_{i+1,\sigma}^{\dag}c_{i,\sigma}^{\phantom{\dag}} - c_{i,\sigma}^{\dag}c_{i+1,\sigma}^{\phantom{\dag}}).
+  \label{eqn:stromoperator}
+\end{align}
+\cite{czycholl,gebhard,uhrig}
+
+\section{Das Heisenberg-Austausch-Modell und der Heisenberg-Mott-Isolator}
+
+In diesem Abschnitt wird zunächst der Übergang des Mott-Hubbard-Isolators in den Mott-Heisenberg-Isolator erklärt
+und anschließend das Heisenberg-Austausch-Modell, welches zur Beschreibung eines Mott-Heisenberg-Isolators dient, beschrieben.
+Für einen Hubbard-Parameter $U \gg J$ ist jeder Gitterplatz des halbgefüllten Mott-Hubbard-Isolators
+im Grundzustand einfach besetzt, da dies energetisch am günstigsten ist.
+Die gesamte Dynamik des Systems ist dann durch eine Spin-Austausch-Wechselwirkung der Elektronen gegeben und
+der Mott-Hubbard-Isolator geht in den Mott-Heisenberg-Isolator über.
+
+Im Mott-Heisenberg-Isolator können zwei Elektronen benachbarter Gitterplätze ihre Spinausrichtungen, wenn diese antiparallel zueinander stehen, in virtuellen Prozessen austauschen.
+Der Tight-Binding-Term im Hamiltonoperator des Hubbard-Modells \eqref{eqn:hamiltonhubb} wird
+als Störung behandelt. Für die virtuellen Austausch-Prozesse zwischen zwei benachbarten Elektronen mit antiparalleler Spinausrichtung ergeben sich
+in zweiter Ordnung Störungstheorie die Energiedifferenzen
+\begin{align}
+  \Delta E_{\uparrow \downarrow} = - \frac{2J^2}{U}.
+  \label{eqn:Ediffantipar}
+\end{align}
+Ein Sprung zwischen zwei benachbarten Elektronen mit paralleler Spinausrichtung ist aufgrund des Pauliprinzips nicht möglich, weshalb der Energieunterschied
+\begin{align}
+  \Delta E_{\uparrow \uparrow} = 0.
+  \label{eqn:Ediffpar}
+\end{align}
+beträgt. Um den Mott-Heisenberg-Isolator mathematisch zu beschreiben, wird das Hubbard-Modell für $U \gg J$
+mit dem Heisenberg-Austausch-Modell verglichen. Der zugehörige Hamiltonoperator lautet
+\begin{align}
+  H_\text{Spin} = t \sum_{i} (\symbf{S}_i \symbf{S}_{i+1} + C),
+  \label{eqn:hamiltonspincj}
+\end{align}
+wobei die Summe über alle Gitterplätze läuft. Durch den Vergleich der Relationen \eqref{eqn:Ediffantipar} und \eqref{eqn:Ediffpar}
+mit den Energiedifferenzen der unterschiedlichen Spinkonfigurationen im Heisenberg-Austausch-Modell
+ergeben sich der Heisenberg-Parameter
+\begin{align}
+  t = \frac{4 J^2}{U}
+  \label{eqn:spint}
+\end{align}
+und die Konstante $C = -\tfrac14$.
+Daraus und aus der Darstellung des $\symbf{S}^2$-Operators in zweiter Quantisierung \eqref{eqn:squadoperatorviel} folgt die Darstellung des Hamiltonoperators zur Beschreibung eines
+Mott-Heisenberg-Isolators in zweiter Quantisierung
+\begin{align}
+  \begin{split}
+    H_\text{Spin} = \, \, \, & \frac{t}{4} \left(\sum_{i} \left(n_{\uparrow,i} - n_{\downarrow,i}\right)\right)^2 \\
+    & + \frac{t}{2} \sum_{i} \left( c_{\uparrow,i}^\dag c_{\downarrow,i}^{\phantom{\dag}} \cdot c_{\downarrow,i+1}^\dag c_{\uparrow,i+1}^{\phantom{\dag}} +
+    c_{\downarrow,i}^\dag c_{\uparrow,i}^{\phantom{\dag}} \cdot c_{\uparrow,i+1}^\dag c_{\downarrow,i+1}^{\phantom{\dag}} - \frac12 \right).
+  \end{split}
+  \label{eqn:hamiltonspin2}
+\end{align}
+\cite{gebhard,uhrig}

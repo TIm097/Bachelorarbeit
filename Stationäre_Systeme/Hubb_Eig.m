@@ -46,9 +46,16 @@ end;
 
 H = -H_j + 4*H_d; # realistische Werte
 [v,lambda] = eig(H);
-[transpose(z),diag(lambda)]
+[transpose(z),diag(lambda)];
 v0 = v(:,1);
-[transpose(z),v0];
+vrund1 = round(1000*v0)/1000;
+H = -H_j + 8*H_d; # realistische Werte
+[v,lambda] = eig(H);
+[transpose(z),diag(lambda)];
+v0 = v(:,1);
+vrund2 = round(1000*v0)/1000;
+[transpose(z),vrund1, vrund2]
+
 save('Hubb_Eig_Ergebn/Hubb_Ham_psi0.txt', 'v0')
 
 save('Hubb_Eig_Ergebn/Hubb_eplot.txt', 'gzeig');
@@ -56,7 +63,7 @@ save('Hubb_Eig_Ergebn/Hubb_gzv.txt', 'gzv');
 
 # Für den Plot der Differenz zwischen Grundzustand und erstem angeregten Zustand:
 
-a = 1000; # Anzahl Werte  (U=a/10)
+a = 10000; # Anzahl Werte  (U=a/10)
 gzdiff = zeros(a,3);
 gzdiff(:,1) = linspace(0.1,a/10,a);
 
@@ -71,9 +78,9 @@ save('Hubb_Eig_Ergebn/Hubb_anr_diff.txt','gzdiff');
 
 # Für den Plot der Energiedifferenz zwischen den ersten beiden Zuständen mit S=0 (1 und 3):
 
-a = 100; # Anzahl Werte  (U=a/10)
+a = 1500; # Anzahl Werte  (U=a/100)
 ediff = zeros(a,2);
-ediff(:,1) = linspace(0.1,a/10,a);
+ediff(:,1) = linspace(0,a/100,a);
 
 for o = 1:a;
   H = -H_j + ediff(o,1)*H_d;
@@ -122,4 +129,4 @@ for d = 1:3; # zwei 'Generationen' des Differenzenquotienten
   diff = diff_neu;
 end;
 
-diff
+diff;

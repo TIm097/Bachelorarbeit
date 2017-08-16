@@ -21,6 +21,8 @@
   cleardoublepage=plain,  % no header/footer on blank pages
 ]{tudothesis}
 
+\renewcommand*\chapterheadstartvskip{\vspace*{-\topskip}}
+\renewcommand*\chapterheadendvskip{\vspace*{1\baselineskip plus .1\baselineskip minus .167\baselineskip}}
 
 % Warning, if another latex run is needed
 \usepackage[aux]{rerunfilecheck}
@@ -130,13 +132,14 @@
 \usepackage[pdfusetitle,unicode,linkbordercolor=tugreen]{hyperref}
 \usepackage{bookmark}
 \usepackage[shortcuts]{extdash}
+\usepackage{bbm}
 
 %------------------------------------------------------------------------------
 %-------------------------    Angaben zur Arbeit   ----------------------------
 %------------------------------------------------------------------------------
 
 \author{Timo Gräßer}
-\title{Inverser Faraday-Effekt in Mottisolatoren}
+\title{Der Inverse Faraday Effekt in Mott-Isolatoren}
 \date{2017}
 \birthplace{Lüdenscheid}
 \chair{Lehrstuhl für Theoretische Physik I}
@@ -144,14 +147,14 @@
 \thesisclass{Bachelor of Science}
 \submissiondate{15. August 2017}
 \firstcorrector{Prof.~Dr.~Götz S. Uhrig}
-\secondcorrector{Prof.~Dr.~Zweitgutachter}
+\secondcorrector{Prof.~Dr.~Joachim Stolze}
 
 % tu logo on top of the titlepage
 \titlehead{\includegraphics[height=1.5cm]{logos/tu-logo.pdf}}
 
 \begin{document}
 \frontmatter
-\input{content/hints.tex}
+%\input{content/hints.tex}
 \maketitle
 
 % Gutachterseite
@@ -165,10 +168,11 @@
 % Hier beginnt der Inhalt mit Seite 1 in arabischen Ziffern
 \input{content/01_einleitung.tex}
 \input{content/02_theoretische_grundlagen.tex}
-\input{content/03_festkoerper_modelle.tex}
-\input{content/04_isolatoren.tex}
-\input{content/05_inverser_faraday_effekt.tex}
-\input{content/06_ergebnisse.tex}
+\input{content/03_isolator_modelle.tex}
+\input{content/04_inverser_faraday_effekt.tex}
+\input{content/05_ergebnisse.tex}
+\input{content/05_ergebnisse_2.tex}
+\input{content/06_ausblick.tex}
 
 \appendix
 % Hier beginnt der Anhang, nummeriert in lateinischen Buchstaben
@@ -177,6 +181,8 @@
 \backmatter
 \printbibliography
 
+\input{content/danksagung.tex}
 \cleardoublepage
+
 \input{content/eid_versicherung.tex}
 \end{document}

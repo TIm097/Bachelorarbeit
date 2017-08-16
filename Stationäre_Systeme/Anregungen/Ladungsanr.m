@@ -87,6 +87,9 @@ for j = 2:24;
   end;
 end;
       
-[v,lambda] = eig(H_hupf + 10*H_diag);
+[v,lambda] = eig(-H_hupf + 10*H_diag);
+
+lambda
+
 gzv = v(:,1);
 save('Ladungsanr_gzv.txt', 'gzv');  # Für S^2

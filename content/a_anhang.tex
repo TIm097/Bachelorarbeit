@@ -1,8 +1,45 @@
-\chapter{Ein Anhangskapitel}
+\chapter{Anhang}
+\label{ch:anhang}
+
+\section{Basis-Zustände und Matrixdarstellungen von Operatoren}
+\setcounter{MaxMatrixCols}{18}
 
 \begin{table}
   \centering
-  \caption{Darstellung der 36 Zustände des halbgefüllten Acht-Niveau-Systems im Hubbard-Modell mit der Vorschrift \eqref{eqn:hubbzustandsvorschrift}.}
+  \caption{Darstellung der vier Basis-Zustände des 4N1E-Systems aus Abschnitt \ref{sec:untersuchungtb} mit der Vorschrift \eqref{eqn:4N1Ezustandsvorschrift}.}
+  \begin{tabular}{S[table-format=1.0] S}
+    \toprule
+    {$i$} & {$\ket{i}$} \\
+    \midrule
+    1 & $\ket{1}$ \\
+    2 & $\ket{2}$ \\
+    3 & $\ket{3}$ \\
+    4 & $\ket{4}$ \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:4N1Ezust}
+\end{table}
+Die Matrixdarstellung des Hamiltonoperators für das 4N1E-System aus Abschnitt \ref{sec:untersuchungtb} zu den Basis-Zuständen aus Tabelle \ref{tab:4N1Ezust} lautet
+\begin{align}
+  H_{ij} &=
+  \begingroup
+    \setlength\arraycolsep{2.5pt}
+    \begin{pmatrix*}[r]
+      0 & -1 & 0 & -1 \\
+      -1 & 0 & -1 & 0 \\
+      0 & -1 & 0 & -1 \\
+      -1 & 0 & -1 & 0
+    \end{pmatrix*}_{ij}
+  \endgroup
+  \label{eqn:4N1Ehamiltonmatrix}
+\end{align}
+in Einheiten von $J$.
+
+\newpage
+
+\begin{table}
+  \centering
+  \caption{Darstellung der 36 Zustände des 8N4E-Systems im Hubbard-Modell aus Abschnitt \ref{sec:untersuchunghubb} mit der Vorschrift \eqref{eqn:8N4Ezustandsvorschrift}.}
   \begin{minipage}[t]{0.35\linewidth}
     \begin{tabular}{S[table-format=2.0] S}
       \toprule
@@ -26,6 +63,7 @@
       16 & $\ket{1,4;2,3}$ \\
       17 & $\ket{1,4;2,4}$ \\
       18 & $\ket{1,4;3,4}$ \\
+      \bottomrule
     \end{tabular}
   \end{minipage}
   \begin{minipage}[t]{0.35\linewidth}
@@ -51,15 +89,565 @@
       34 & $\ket{3,4;2,3}$ \\
       35 & $\ket{3,4;2,4}$ \\
       36 & $\ket{3,4;3,4}$ \\
+      \bottomrule
     \end{tabular}
   \end{minipage}
-  \label{tab:hubbzustandsvorschrift}
+  \label{tab:8N4Ehubbzust}
+\end{table}
+Die Matrixdarstellung des Hamiltonoperators für das 8N4E-System im Hubbard-Modell aus Abschnitt \ref{sec:untersuchunghubb} zu den Basis-Zuständen aus Tabelle \ref{tab:8N4Ehubbzust} lautet
+\setcounter{MaxMatrixCols}{18}
+\begin{align}
+  H_{ij} =
+  \begin{pmatrix*}[l]
+     \mathcal{A} & \mathcal{B}^T \\
+     \mathcal{B} & \mathcal{C}
+  \end{pmatrix*}_{ij}
+  \label{eqn:8N4Ehubbmatrix}
+\end{align}
+
+\newpage
+
+mit
+\begin{align*}
+  \mathcal{A} & =
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      2\alpha & -1 &  0 &  0 &  1 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      -1 &  \alpha & -1 & -1 &  0 &  1 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      0 & -1 &  \alpha &  0 & -1 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      0 & -1 &  0 &  \alpha & -1 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      1 &  0 & -1 & -1 &  \alpha & -1 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      0 &  1 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      -1 &  0 &  0 &  0 &  0 &  0 &  \alpha & -1 &  0 &  0 &  1 &  0 & -1 &  0 &  0 &  0 &  0 &  0 \\
+      0 & -1 &  0 &  0 &  0 &  0 & -1 &  2\alpha & -1 & -1 &  0 &  1 &  0 & -1 &  0 &  0 &  0 &  0 \\
+      0 &  0 & -1 &  0 &  0 &  0 &  0 & -1 &  \alpha &  0 & -1 &  0 &  0 &  0 & -1 &  0 &  0 &  0 \\
+      0 &  0 &  0 & -1 &  0 &  0 &  0 & -1 &  0 &  \alpha & -1 &  0 &  0 &  0 &  0 & -1 &  0 &  0 \\
+      0 &  0 &  0 &  0 & -1 &  0 &  1 &  0 & -1 & -1 &  0 & -1 &  0 &  0 &  0 &  0 & -1 &  0 \\
+      0 &  0 &  0 &  0 &  0 & -1 &  0 &  1 &  0 &  0 & -1 &  \alpha &  0 &  0 &  0 &  0 &  0 & -1 \\
+      0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  \alpha & -1 &  0 &  0 &  1 &  0 \\
+      0 &  0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 & -1 &  \alpha & -1 & -1 &  0 &  1 \\
+      0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 & -1 &  2\alpha &  0 & -1 &  0 \\
+      0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 & -1 &  0 &  0 & -1 &  0 \\
+      0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  1 &  0 & -1 & -1 &  \alpha & -1 \\
+      0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  1 &  0 &  0 & -1 &  \alpha
+    \end{pmatrix*}
+  \endgroup \\
+  \mathcal{B} & =
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{pmatrix*}
+  \endgroup
+\end{align*}
+
+\newpage
+
+\begin{align*}
+  \mathcal{C} &=
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      \alpha &-1 & 0 & 0 & 1 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      -1 & \alpha &-1 &-1 & 0 & 1 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 &-1 & 0 & 0 &-1 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 &-1 & 0 & 2\alpha&-1 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      1 & 0 &-1 &-1 & \alpha &-1 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 &-1 & \alpha & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      -1 & 0 & 0 & 0 & 0 & 0 & \alpha &-1 & 0 & 0 & 1 & 0 &-1 & 0 & 0 & 0 & 0 & 0 \\
+      0 &-1 & 0 & 0 & 0 & 0 &-1 & 0 &-1 &-1 & 0 & 1 & 0 &-1 & 0 & 0 & 0 & 0 \\
+      0 & 0 &-1 & 0 & 0 & 0 & 0 &-1 & \alpha & 0 &-1 & 0 & 0 & 0 &-1 & 0 & 0 & 0 \\
+      0 & 0 & 0 &-1 & 0 & 0 & 0 &-1 & 0 & \alpha &-1 & 0 & 0 & 0 & 0 &-1 & 0 & 0 \\
+      0 & 0 & 0 & 0 &-1 & 0 & 1 & 0 &-1 &-1 & 2\alpha&-1 & 0 & 0 & 0 & 0 &-1 & 0 \\
+      0 & 0 & 0 & 0 & 0 &-1 & 0 & 1 & 0 & 0 &-1 & \alpha & 0 & 0 & 0 & 0 & 0 &-1 \\
+      0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 &-1 & \alpha &-1 &-1 & 0 & 1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 &-1 & \alpha & 0 &-1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 &-1 & 0 & \alpha &-1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 1 & 0 &-1 &-1 & \alpha &-1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 1 & 0 & 0 &-1 & 2\alpha
+    \end{pmatrix*}
+  \endgroup
+\end{align*}
+in Einheiten von $J$ und mit $\alpha = U/J$.
+
+\begin{table}
+  \centering
+  \caption{Darstellung der sechs Zustände des 8N4E-Systems im Heisenberg-Austausch-Modell aus Abschnitt \ref{sec:untersuchungheis} mit der Vorschrift \eqref{eqn:8N4Ezustandsvorschrift}.}
+  \begin{tabular}{S[table-format=1.0] S}
+    \toprule
+    {$i$} & {$\ket{i}$} \\
+    \midrule
+    1  & $\ket{1,2;3,4}$ \\
+    2  & $\ket{1,3;2,4}$ \\
+    3  & $\ket{1,4;3,2}$ \\
+    4  & $\ket{3,4;1,2}$ \\
+    5  & $\ket{2,4;1,3}$ \\
+    6  & $\ket{3,2;1,4}$ \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:8N4Eheiszust}
+\end{table}
+Die Matrixdarstellung des Hamiltonoperators für das 8N4E-System im Heisenberg-Austausch-Modell aus Abschnitt \ref{sec:untersuchungheis} zu den Basis-Zuständen aus Tabelle \ref{tab:8N4Eheiszust} lautet
+\setcounter{MaxMatrixCols}{18}
+\begin{align}
+  H_{ij} =
+  \begin{pmatrix*}[r]
+    -1   &  0.5 &  0   &  0   &  0.5 &  0   \\
+     0.5 & -2   & -0.5 &  0.5 &  0   & -0.5 \\
+     0   & -0.5 & -1   &  0   & -0.5 &  0   \\
+     0   &  0.5 &  0   & -1   &  0.5 &  0   \\
+     0.5 &  0   & -0.5 &  0.5 & -2   & -0.5 \\
+     0   & -0.5 &  0   &  0   & -0.5 & -1
+  \end{pmatrix*}_{ij}
+  \label{eqn:8N4Eheismatrix}
+\end{align}
+in Einheiten von $t$.
+
+Die Matrixdarstellung des Feldoperators $H_{\Phi}$ aus Abschnitt \ref{sec:untersuchungife} zu den Basis-Zuständen aus Tabelle \ref{tab:8N4Ehubbzust} lautet
+\begin{align}
+  H_{ij} = \delta_{ij}
+  \begin{pmatrix}
+    \vec{\mathcal{\chi}_1} \\
+    \vec{\mathcal{\chi}_2} \\
+  \end{pmatrix}_{i}
+  \label{eqn:ifematrix}
+\end{align}
+mit
+\begin{align*}
+  \vec{\mathcal{\chi}_1} & =
+  \begin{pmatrix}
+    -2 \sin{\omega t} \\
+    -\sin{\omega t} \\
+    -\cos{\omega t}  -\sin{\omega t} \\
+    \cos{\omega t}  -\sin{\omega t} \\
+    -\sin{\omega t} \\
+    0                                    \\
+    -\sin{\omega t} \\
+    0                                    \\
+    -\cos{\omega t}                    \\
+    \cos{\omega t}                    \\
+    0                                    \\
+    \sin{\omega t} \\
+    -\cos{\omega t}  -\sin{\omega t} \\
+    -\cos{\omega t}                    \\
+    -2 \cos{\omega t}                    \\
+    0                                    \\
+    -\cos{\omega t}                    \\
+    -\cos{\omega t}  +\sin{\omega t} \\
+\end{pmatrix}
+& \vec{\mathcal{\chi}_1} = &
+\begin{pmatrix}
+    \cos{\omega t}  -\sin{\omega t} \\
+    \cos{\omega t}                    \\
+    0                                    \\
+    2 \cos{\omega t}                    \\
+    \cos{\omega t}                    \\
+    \cos{\omega t}  +\sin{\omega t} \\
+    -\sin{\omega t} \\
+    0                                    \\
+    -\cos{\omega t}                    \\
+    \cos{\omega t}                    \\
+    0                                    \\
+    \sin{\omega t} \\
+    0                                    \\
+    \sin{\omega t} \\
+    -\cos{\omega t}  +\sin{\omega t} \\
+    \cos{\omega t}  +\sin{\omega t} \\
+    \sin{\omega t} \\
+    2 \sin{\omega t} \\
+  \end{pmatrix}
+\end{align*}
+in Einheiten von $a A_0 \symup{e}$.
+
+Die Matrixdarstellung des Stromoperators aus Abschnitt \ref{sec:untersuchungife} zu den Basis-Zuständen aus Tabelle \ref{tab:8N4Ehubbzust} lautet
+\begin{align}
+\mathcal{J}_{ij} =
+\begin{pmatrix*}[l]
+   \mathcal{U} & -\mathcal{V}^T \\
+   \mathcal{V} & \phantom{-}\mathcal{W}
+\end{pmatrix*}_{ij}
+\label{eqn:strommatrix}
+\end{align}
+mit
+
+\begin{align*}
+  \mathcal{U} &=
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      0 & -1 &  0 &  0 & -1 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      \phantom{-}1 & 0 & -1 & -1 &  0 & -1 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      0 &\phantom{-}1 & 0 &  0 & -1 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      0 &\phantom{-}1 & 0 & 0 & -1 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      \phantom{-}1 & 0 &\phantom{-}1 &\phantom{-}1 & 0 & -1 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      0 &\phantom{-}1 & 0 & 0 &\phantom{-}1 & 0 &  0 &  0 &  0 &  0 &  0 & -1 &  0 &  0 &  0 &  0 &  0 &  0 \\
+      \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & -1 &  0 &  0 & -1 &  0 & -1 &  0 &  0 &  0 &  0 &  0 \\
+      0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & -1 & -1 &  0 & -1 &  0 & -1 &  0 &  0 &  0 &  0 \\
+      0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &  0 & -1 &  0 &  0 &  0 & -1 &  0 &  0 &  0 \\
+      0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & -1 &  0 &  0 &  0 &  0 & -1 &  0 &  0 \\
+      0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 &\phantom{-}1 &\phantom{-}1 & 0 & -1 &  0 &  0 &  0 &  0 & -1 &  0 \\
+      0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 & 0 &\phantom{-}1 & 0 &  0 &  0 &  0 &  0 &  0 & -1 \\
+      0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & -1 &  0 &  0 & -1 &  0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & -1 & -1 &  0 & -1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &  0 & -1 &  0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & -1 &  0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 &\phantom{-}1 &\phantom{-}1 & 0 & -1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 & 0 &\phantom{-}1 & 0
+    \end{pmatrix*}
+  \endgroup\\
+  \mathcal{V} &=
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    \end{pmatrix*}
+  \endgroup
+\end{align*}
+\begin{align*}
+  \mathcal{W} &=
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      0& -1 & 0 & 0& -1 & 0& -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      \phantom{-}1 & 0& -1& -1 & 0& -1 & 0& -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 &\phantom{-}1 & 0 & 0& -1 & 0 & 0 & 0& -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 &\phantom{-}1 & 0 & 0& -1 & 0 & 0 & 0 & 0& -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      \phantom{-}1 & 0 &\phantom{-}1 &\phantom{-}1 & 0& -1 & 0 & 0 & 0 & 0& -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 &\phantom{-}1 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0& -1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0& -1 & 0 & 0& -1 & 0& -1 & 0 & 0 & 0 & 0 & 0 \\
+      0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0& -1& -1 & 0& -1 & 0& -1 & 0 & 0 & 0 & 0 \\
+      0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0& -1 & 0 & 0 & 0& -1 & 0 & 0 & 0 \\
+      0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0& -1 & 0 & 0 & 0 & 0& -1 & 0 & 0 \\
+      0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 &\phantom{-}1 &\phantom{-}1 & 0& -1 & 0 & 0 & 0 & 0& -1 & 0 \\
+      0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0& -1 \\
+      0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0& -1 & 0 & 0& -1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0& -1& -1 & 0& -1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0& -1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0 & 0 &\phantom{-}1 & 0 & 0& -1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 &\phantom{-}1 &\phantom{-}1 & 0& -1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &\phantom{-}1 & 0 &\phantom{-}1 & 0 & 0 &\phantom{-}1 & 0 \\
+    \end{pmatrix*}
+  \endgroup
+\end{align*}
+in Einheiten von $\frac{\symup{i} J \symup{e}}{4 \hbar}$.
+
+\begin{table}
+  \centering
+  \caption{Darstellung der 16 Zustände des in der Spinausrichtung angeregten 8N4E-Systems im Hubbard-Modell aus Abschnitt \ref{sec:spin} mit der Vorschrift \eqref{eqn:8N4Espinvorschrift}.}
+  \begin{minipage}[t]{0.35\linewidth}
+    \begin{tabular}{S[table-format=2.0] S}
+      \toprule
+      {$i$} & {$\ket{i}$} \\
+      \midrule
+      1  &  $\ket{1;1}$ \\
+      2  &  $\ket{1;2}$ \\
+      3  &  $\ket{1;3}$ \\
+      4  &  $\ket{1;4}$ \\
+      5  &  $\ket{2;1}$ \\
+      6  &  $\ket{2;2}$ \\
+      7  &  $\ket{2;3}$ \\
+      8  &  $\ket{2;4}$ \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}[t]{0.35\linewidth}
+    \begin{tabular}{S[table-format=2.0] S}
+      \toprule
+      {$i$} & {$\ket{i}$} \\
+      \midrule
+      9  &  $\ket{3;1}$ \\
+      10 &  $\ket{3;2}$ \\
+      11 &  $\ket{3;3}$ \\
+      12 &  $\ket{3;4}$ \\
+      13 &  $\ket{4;1}$ \\
+      14 &  $\ket{4;2}$ \\
+      15 &  $\ket{4;3}$ \\
+      16 &  $\ket{4;4}$ \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+  \label{tab:spluszustände}
 \end{table}
 
 
-\begin{table}[h]
+Die Matrixdarstellung des $S_+$-Operators aus Abschnitt \ref{sec:spin} zu den Basis-Zuständen aus Tabelle \ref{tab:spluszustände} lautet
+\begin{align}
+  \left( \mathcal{S}_+ \right)_{ij} =
+  \begin{pmatrix*}[r]
+    \mathcal{K} & \mathcal{L}
+  \end{pmatrix*}_{ij}
+  \label{eqn:splusmatrix}
+\end{align}
+mit
+
+\begin{align*}
+  \mathcal{K} &=
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & -1 & \phantom{-}0 & 0 \\
+      0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+      0 & 0 & \phantom{-}0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+      \phantom{-}0 & \phantom{-}0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{pmatrix*}
+  \endgroup\\
+  \mathcal{L} &=
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      0 & 0 & 1 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+      \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & \phantom{-}0 & 1 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & \phantom{-}0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      1 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 1 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 &-1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 &-1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 \\
+      0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 \\
+    \end{pmatrix*}.
+  \endgroup
+\end{align*}
+
+Die Matrixdarstellung des Hamiltonoperators $H_\text{Diag}$ zur Beschreibung der Übernächst-Nachbar-Tight-Binding-Wechselwirkung aus Abschnitt \ref{sec:untersuchungife} zu den Basis-Zuständen aus Tabelle \ref{tab:8N4Ehubbzust} lautet
+\setcounter{MaxMatrixCols}{18}
+\begin{align}
+  H_{ij} =
+  \begin{pmatrix*}[l]
+     \mathcal{X} & \mathcal{Y}^T \\
+     \mathcal{Y} & \mathcal{Z}
+  \end{pmatrix*}_{ij}
+  \label{eqn:elmatrix}
+\end{align}
+mit
+\begin{align*}
+  \mathcal{X} & =
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      0 & 0 &-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 \\
+      -1 &0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 \\
+      1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 \\
+      0 & 0 &-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & \phantom{-}0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & \phantom{-}0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      -1 &0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 1 & 0 & 0 \\
+      0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 &-1 \\
+      0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+      0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 1 & 0 & 0 \\
+    \end{pmatrix*}
+  \endgroup \\
+  \mathcal{Y} & =
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & \phantom{-}1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 \\
+    \end{pmatrix*}
+  \endgroup
+\end{align*}
+\begin{align*}
+  \mathcal{Z} &=
+  \begingroup
+    \setlength\arraycolsep{2.1pt}
+    \begin{pmatrix*}[r]
+      \phantom{-}0 & 0 &-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+      -1& 0 & \phantom{-}0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+      1 & 0 & 0 & \phantom{-}0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+      0 & 0 &-1 & 1 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+      0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 &-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & \phantom{-}0 & 0 & 0 &-1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & \phantom{-}0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 1 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+      1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 &-1 & 1 & 0 & 0 \\
+      0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 0 & \phantom{-}0 & 0 & 0 &-1 \\
+      0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & \phantom{-}0 & 0 & 1 \\
+      0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \phantom{-}0 & 0 \\
+      0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &-1 & 1 & 0 & \phantom{-}0 \\
+    \end{pmatrix*}
+  \endgroup
+\end{align*}
+in Einheiten von $\lambda = 0.2 \, J$.
+
+\newpage
+
+\section{Gitterplatz-Vektoren und Anfangsbedingungen für das zeitabhängige System}
+
+Die Ortsvektoren der Gitterplätze aus Abschnitt \ref{sec:untersuchungife}, welche in Gleichung \eqref{eqn:qPhi} benötigt werden, lauten
+\begin{align}
+  \vec{r}_1 &= \frac12
+  \begin{pmatrix*}[r]
+     -1 \\
+     -1
+  \end{pmatrix*} &
+  \vec{r}_2 &= \frac12
+  \begin{pmatrix*}[r]
+     1 \\
+     -1
+  \end{pmatrix*} &
+  \vec{r}_3 &= \frac12
+  \begin{pmatrix*}[r]
+     \phantom{-}1 \\
+     1
+  \end{pmatrix*} &
+  \vec{r}_4 &= \frac12
+  \begin{pmatrix*}[r]
+     -1 \\
+     1
+  \end{pmatrix*}
+  \label{eqn:gitterplatzvektor}
+\end{align}
+in Einheiten von $a$.
+
+\begin{table}
   \centering
-  \caption{Datenpunkte der sechs niedrigsten Eigenenergien des Festkörpersystems in Abhängigkeit vom Potential und in Einheiten von $J$.}
+  \caption{Koeffizienten $\alpha_i$ der Linearkombination der Basis-Zustände für den Eigenzustand $\Psi_0$ des 8N4E-Systems
+  jeweils mit $U/J = 4$ und $U/J = 8$. Die Basis-Zustände $\ket{i}$ sind in Tabelle \ref{tab:8N4Ehubbzust} aufgelistet.}
+  \begin{minipage}[t]{0.35\linewidth}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.3] S[table-format=2.3]}
+      \toprule
+      {$i$} & {$\alpha_i(4)$} & {$\alpha_i(8)$} \\
+      \midrule
+      1  & -0.051 & -0.021 \\
+      2  & -0.129 & -0.089 \\
+      3  &      0 &      0 \\
+      4  &      0 &      0 \\
+      5  &  0.129 &  0.089 \\
+      6  &  0.245 &  0.270 \\
+      7  & -0.129 & -0.089 \\
+      8  &      0 &      0 \\
+      9  &  0.129 &  0.089 \\
+      10 &  0.129 &  0.089 \\
+      11 &  0.491 &  0.539 \\
+      12 &  0.129 &  0.089 \\
+      13 &      0 &      0 \\
+      14 &  0.129 &  0.089 \\
+      15 &  0.051 &  0.021 \\
+      16 &  0.245 &  0.270 \\
+      17 &  0.129 &  0.089 \\
+      18 &      0 &      0 \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}[t]{0.35\linewidth}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.3] S[table-format=2.3]}
+      \toprule
+      {$i$} & {$\alpha_i(4)$} & {$\alpha_i(8)$} \\
+      \midrule
+      19 &      0 &      0 \\
+      20 &  0.129 &  0.089 \\
+      21 &  0.245 &  0.270 \\
+      22 &  0.051 &  0.021 \\
+      23 &  0.129 &  0.089 \\
+      24 &      0 &      0 \\
+      25 &  0.129 &  0.089 \\
+      26 &  0.491 &  0.539 \\
+      27 &  0.129 &  0.089 \\
+      28 &  0.129 &  0.089 \\
+      29 &      0 &      0 \\
+      30 & -0.129 & -0.089 \\
+      31 &  0.245 &  0.270 \\
+      32 &  0.129 &  0.089 \\
+      33 &      0 &      0 \\
+      34 &      0 &      0 \\
+      35 & -0.129 & -0.089 \\
+      36 & -0.051 & -0.021 \\
+      \bottomrule
+    \end{tabular}
+  \end{minipage}
+  \label{tab:Upsi0}
+\end{table}
+
+\newpage
+
+\section{Eigenenergien des modellierten Mott-Hubbard-Isolators}
+
+\begin{table}[H]
+  \centering
+  \caption{Datenpunkte der sechs niedrigsten Energieeigenwerte der Matrix \eqref{eqn:8N4Ehubbmatrix} des 8N4E-Systems im Hubbard-Modell aus Abschnitt \ref{sec:untersuchunghubb} in Abhängigkeit vom Potential $U$.}
   \begin{tabular}{S[table-format=1.0] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2]}
     \toprule
     {$U/J$} & {$E_0/J$} & {$E_1/J$} & {$E_2/J$} & {$E_3/J$} & {$E_4/J$} & {$E_5/J$} \\
@@ -74,16 +662,6 @@
     8  & -1.32 & -0.99 & -0.51 & -0.47 & -0.47 & 0     \\
     9  & -1.20 & -0.88 & -0.45 & -0.42 & -0.42 & 0     \\
     10 & -1.10 & -0.80 & -0.41 & -0.39 & -0.39 & 0     \\
-    11 & -1.01 & -0.72 & -0.37 & -0.35 & -0.35 & 0     \\
-    12 & -0.94 & -0.66 & -0.34 & -0.32 & -0.32 & 0     \\
-    13 & -0.87 & -0.61 & -0.31 & -0.30 & -0.30 & 0     \\
-    14 & -0.82 & -0.57 & -0.29 & -0.28 & -0.28 & 0     \\
-    15 & -0.77 & -0.53 & -0.27 & -0.26 & -0.26 & 0     \\
-    16 & -0.72 & -0.50 & -0.25 & -0.25 & -0.25 & 0     \\
-    17 & -0.68 & -0.47 & -0.24 & -0.23 & -0.23 & 0     \\
-    18 & -0.65 & -0.44 & -0.22 & -0.22 & -0.22 & 0     \\
-    19 & -0.62 & -0.42 & -0.21 & -0.21 & -0.21 & 0     \\
-    20 & -0.59 & -0.40 & -0.20 & -0.20 & -0.20 & 0     \\
     \bottomrule
   \end{tabular}
   \label{tab:eigenwerte}
@@ -91,7 +669,48 @@
 
 \begin{figure}[H]
   \centering
-  \includegraphics{build/Hubb_gze_plot.pdf}
-  \caption{plot.}
+  \includegraphics[height=7.5cm]{build/Hubb_eplot2.pdf}
+  \caption{Die ersten sechs Eigenenergiewerte des 8N4E-Systems für Abschnitt \ref{sec:spin} in Einheiten von $J$ und in Abhängigkeit von $U/J$. Sie sind zu den Eigenvektoren $\Psi_q$ geordnet, welche wiederum so geordnet sind,
+  dass sich die Spins $S_q$ mit $U/J$ nicht ändern. Die Energien $E_4$ ist zweifach entartet.}
+  \label{fig:eplot2}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=7.5cm]{build/Hubb_ediff_plot.pdf}
+  \caption{Eigenenergiedifferenz $\Delta E_{0 \to 2} = E_2 - E_0$ in Einheiten von $J$ und in Abhängigkeit von $U/J$. Die Eigenzustände zu $E_0$ und $E_2$ haben jeweils den Gesamtspin $S=0$.}
+  \label{fig:ediffplot}
+\end{figure}
+
+\section{Lineare Regression der Grundzustandsenergie}
+\label{sec:linreg}
+
+Der Logarithmus der Grundzustandsenergie wird insgesamt für 10001 Potentialwerte mit äquidistantem Abstand von $U/J = \num{40000}$ bis $U/J = \num{50000}$ linear approximiert.
+Zur Geradengleichung
+\begin{align}
+  \ln{\frac{E_\text{0,hubb}}{J}} = m \ln{\frac{U}{J}} + n
+  \label{eqn:loge0hubbgerade}
+\end{align}
+werden die Regressionsparameter
+\begin{align}
+  m & = -1 & n & = 2.484906
+  \label{eqn:regressionsparameter}
+\end{align}
+berechnet. Die Fehler der Parameter werden nicht explizit angegeben, da sie in der Größenordnung $10^{-9}$ liegen.
+Es wird ein Koeffizientenvergleich zwischen Gleichung \eqref{eqn:loge0hubb} und \eqref{eqn:loge0hubbgerade} durchgeführt.
+Die Steigungen stimmen überein und für den Koeffizienten ergibt sich
+\begin{align}
+   \eta_\text{Hubb} = 3 - \num{2e-06}.
+\end{align}
+In Abbildung \ref{fig:e0plot} ist die Grundzustandsenergie des 8N4E-Systems im Hubbard-Modell in Einheiten von $J$ gegen das Ergebnis der Störungsrechnung zweiter Ordnung
+\begin{align*}
+  E_0/J = - 3 t/J = - 3 \frac{4J}{U}
+\end{align*}
+aufgetragen. In dieser Graphik ist erneut erkennbar, dass sich beide Kurven für $U/J \to \infty$ asymptotisch annähern.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=7.5cm]{build/heis_hubb_vgl_plot.pdf}
+  \caption{Grundzustandsenergie des 8N4E-Systems, im Hubbard-Modell exakt und in zweiter Ordnung Störungstheorie genähert, $E_{0\text{,Korr}} = -3t$, in Einheiten von $J$.}
   \label{fig:e0plot}
 \end{figure}
